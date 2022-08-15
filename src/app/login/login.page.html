@@ -1,0 +1,52 @@
+<ion-content class="ion-padding">
+
+  <div class="logo">
+    <img src="assets/img/logo.png">
+  </div>
+
+  <h1>Welcome back!</h1>
+
+    <form class="form" [formGroup]="userForm" (ngSubmit)="signIn(userForm.value)">
+
+      <div class="inputbox">
+        <ion-input type="text" formControlName="email" placeholder="Enter your email"></ion-input>
+        <ng-container *ngFor="let error of error_msg.email">
+          <div *ngIf="userForm.get('email').hasError(error.type) && (userForm.get('email').dirty || userForm.get('email').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+      
+      
+  
+      <div class="inputbox">
+        <ion-input type="password" formControlName="password" class="form-controll" placeholder="Enter your password" required></ion-input>
+        <ng-container *ngFor="let error of error_msg.password">
+          <div *ngIf="userForm.get('password').hasError(error.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
+            {{ error.message }}
+          </div>
+      </ng-container>
+      </div>
+      
+      
+
+      <div>
+        <h6>Forgot Password?</h6>
+      </div>
+
+      <div class="loginbtn">
+      <ion-button type="submit" expand="full" [disabled]="!userForm.valid">Login</ion-button>
+      <label class="ion-text-center" color="danger">{{errorMsg}}</label>
+      </div>
+
+    </form>
+
+    
+
+  </ion-content>
+
+  <ion-footer class="footer">
+      <p class="ion-text-center">Dont't have an account? <a (click)="goToSignup()">Sign up</a></p>
+  </ion-footer>
+  
+

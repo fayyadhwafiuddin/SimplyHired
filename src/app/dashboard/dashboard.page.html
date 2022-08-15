@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col text-center>
+        Welcome User!
+        <p>User email: <strong>{{ userDetail }}</strong></p>
+       <ion-button type="submit" color="danger" size="small" (click)="signOut()">Signout</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <div>
+      <img src="assets/img/logo.jpeg">
+    </div>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="buttonbox">Find Jobs</div>
+      </ion-col>
+      <ion-col>
+        <div class="buttonbox">Application Status</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <div class="bigbox"></div>
+  </ion-grid>
+  
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="dashboard">
+        <ion-icon name="easel-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+</ion-content>
+

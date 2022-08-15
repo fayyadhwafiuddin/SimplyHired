@@ -1,0 +1,68 @@
+#container {
+  text-align: center;
+  top: 20px;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+// searchbar div
+#searchbar {
+  margin-bottom: 30px;
+}
+ion-searchbar {
+  width: 80%;
+  left: 20px;
+  top: 10px;
+  background-color: #F19953;
+}
+// toolbar text to be centered
+ion-toolbar {
+  text-align: center;
+}
+
+#Logo {
+  width: 226px;
+  height: 135px;
+}
+
+// background color for lists
+ion-card, ion-item, ion-label {
+  background-color: #F19953;
+  }
+
+// label text to be centered
+// ion-label {
+//   left: 50px;
+//   text-align: center;
+// }
+ion-card-title {
+  // left: 40%;
+  bottom: 10%;
+  width: 205px;
+  height: 22px; 
+}
+ion-text {
+  width: 119px;
+  height: 16px;
+}
+
+//div toolbar container position
+#toolbar {
+  bottom: 100%;
+}

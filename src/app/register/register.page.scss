@@ -1,0 +1,50 @@
+html{
+    background-color: #7d7d7d;
+}
+
+ion-content{
+    --background: #EDF7F6;
+}
+
+.footer{
+    min-height: 10em;
+    height: auto;
+    background-color: #EDF7F6;
+    color: black;
+}
+
+h6,h1{  
+    text-align: center;
+    color: black;
+}
+
+.form{
+    display: inline-block;
+    margin-top: 5em;
+    color: black;
+}
+
+img{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 80px;
+    width: 100%;
+}
+
+.loginbtn{
+    margin-top: 50px;
+    
+}
+
+.inputbox{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 40px;
+    margin-top: 5px;
+    border-radius: 20px;
+    background-color: #f19953;
+    text-align: center;
+}
