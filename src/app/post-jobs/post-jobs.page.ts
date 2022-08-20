@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { getApp } from 'firebase/app';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { Jobs } from '../models/jobs';
 
 @Component({
@@ -26,6 +28,11 @@ export class PostJobsPage implements OnInit {
   }
 
   addjobs(): void{
+    const firebaseApp = getApp();
+    const db = getFirestore(firebaseApp);
+    const jobCollection = collection(db, `jobposted`);
+
+    addDoc(jobCollection, this.postJobsForm.value);
     console.log(this.postJobsForm.value);
   }
   
