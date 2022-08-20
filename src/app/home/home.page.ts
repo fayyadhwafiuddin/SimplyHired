@@ -37,7 +37,7 @@ export class HomePage implements OnInit{
         salary_to: doc.data().salary_to,
       });
 
-      //this is just to show if data first
+      //this is just to show if data can be retrieved
       console.log(doc.id, " => ", doc.data());
     });
   }
