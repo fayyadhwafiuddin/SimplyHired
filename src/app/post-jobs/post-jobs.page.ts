@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Jobs } from '../models/jobs';
 
 @Component({
   selector: 'app-post-jobs',
@@ -6,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-jobs.page.scss'],
 })
 export class PostJobsPage implements OnInit {
-
-  constructor() { }
+  public postJobsForm: FormGroup;
+  constructor(public formBuilder: FormBuilder)
+   { this.postJobsForm = this.formBuilder.group ({
+     img: ['', Validators.compose([Validators.required])],
+     company_name: ['', Validators.compose([Validators.required])],
+     job_position: ['', Validators.compose([Validators.required])],
+     location: ['', Validators.compose([Validators.required])],
+     salary_to: ['', Validators.compose([Validators.required])],
+     salary_from: ['', Validators.compose([Validators.required])],
+     requirement: ['', Validators.compose([Validators.required])],
+     more_info: ['', Validators.compose([Validators.required])],
+   }); 
+  }
 
   ngOnInit() {
   }
 
+  addjobs(): void{
+    console.log(this.postJobsForm.value);
+  }
+  
 }
+

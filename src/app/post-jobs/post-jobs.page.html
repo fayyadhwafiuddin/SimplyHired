@@ -4,6 +4,58 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <form [formGroup]="postJobsForm" (submit)="addjobs()" novalidate>
+    <ion-item>
+      <ion-label>Comapny Name</ion-label>
+        <ion-input formControlName="company_name" type="text" placeholder="type company name">
+          
+        </ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label>Job Position</ion-label>
+        <ion-input formControlName="job_position" type="text" placeholder="type job position">
+          
+        </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address</ion-label>
+        <ion-textarea formControlName="location" placeholder="type job company address">
+          
+        </ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Salary min</ion-label>
+        <ion-input formControlName="salary_from" type="number" currency placeholder="type here">
+          
+        </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Salary max</ion-label>
+        <ion-input formControlName="salary_to" type="number" currency placeholder="type here">
+          
+        </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Requirements</ion-label>
+        <ion-textarea formControlName="requirement" placeholder="Job requirement">
+          
+        </ion-textarea>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>More Info</ion-label>
+        <ion-textarea formControlName="more_info" placeholder="Any additional information for seekers">
+          
+        </ion-textarea>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">add</ion-button>
+  </form>
 </ion-content>
