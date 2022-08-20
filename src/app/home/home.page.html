@@ -13,33 +13,54 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="searchbar" inline>
-    <ion-searchbar></ion-searchbar>
+  <div id="searchbar">
+    <ion-searchbar rounded></ion-searchbar>
+    <ion-button><ion-icon>
+    </ion-icon></ion-button>
   </div>
 
-  <div id="container">
+  <ion-list>
+    <ion-item *ngFor="let jobs of jobList">
+      <ion-thumbnail slot="start">
+        <img src="{{ jobs.img }}" alt="">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>{{ jobs.company_name }}</h3>
+        <h3>{{ jobs.job_position }}</h3>
+        <h3>{{ jobs.salary_to | currency}}</h3>
+        <h3>{{ jobs.salary_from | currency}}</h3>
+        <h3>{{ jobs.location}}</h3>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+  <!-- <div id="container">
     <ion-card>
-      <ion-card-content>
         <ion-item>
-          <img src="" alt="">
-          <ion-label>
-            <ion-card-title>Receptionist</ion-card-title>
-            <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
-            <ion-text>Salary</ion-text>
-          </ion-label>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-    
-    <ion-card>
-      <ion-card-content>
-        <ion-item>
+          <span class="item-content">
             <img src="" alt="">
-          <ion-label>  
-            <ion-card-title>Human Resources Business Partner</ion-card-title>
+            <ion-label>
+              <ion-card-title>Receptionist</ion-card-title>
+              <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
+              <ion-text>Salary</ion-text>
+            </ion-label>
+            <ion-button> Apply </ion-button>
+          </span>
+        </ion-item>
+      </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <div class="item-content">
+            <img src="" alt="">  
+            <ion-title>Human Resources Business Partner</ion-title>
             <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
+            <br>
             <ion-text>Salary</ion-text>
-          </ion-label>
+        </div>
         </ion-item>
       </ion-card-content>
     </ion-card>
@@ -66,8 +87,9 @@
             <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
             <ion-text>Salary</ion-text>
           </ion-label>  
+          <ion-button> Apply </ion-button>
         </ion-item>
       </ion-card-content>
     </ion-card>
-  </div>
+  </div> -->
 </ion-content>

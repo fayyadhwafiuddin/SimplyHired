@@ -26,10 +26,11 @@
   margin-bottom: 30px;
 }
 ion-searchbar {
-  width: 80%;
+  width: 70%;
   left: 20px;
   top: 10px;
-  background-color: #F19953;
+  border-width : 10px;
+  border-color: #F19953;
 }
 // toolbar text to be centered
 ion-toolbar {
@@ -42,10 +43,15 @@ ion-toolbar {
 }
 
 // background color for lists
-ion-card, ion-item, ion-label {
+
+ion-item {
+  // background-color: transparent !important;
   background-color: #F19953;
   }
-
+  .item-content {
+    background-color: #F19953;
+    display: block;  
+  }
 // label text to be centered
 // ion-label {
 //   left: 50px;
