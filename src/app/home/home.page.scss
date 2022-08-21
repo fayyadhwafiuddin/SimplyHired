@@ -21,17 +21,29 @@
   text-decoration: none;
 }
 
+#logo {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto; 
+  margin-top: 10px;
+  width: 100%;
+}
+
 // searchbar div
 #searchbar {
+  display: block;
   margin-bottom: 30px;
 }
 ion-searchbar {
-  width: 70%;
-  left: 20px;
-  top: 10px;
   border-width : 10px;
   border-color: #F19953;
 }
+
+#filter {
+margin-top: 10px;
+height: 40px;
+}
+
 // toolbar text to be centered
 ion-toolbar {
   text-align: center;
@@ -40,35 +52,15 @@ ion-toolbar {
 #Logo {
   width: 226px;
   height: 135px;
+  margin: auto;
 }
 
 // background color for lists
-
-ion-item {
-  // background-color: transparent !important;
-  background-color: #F19953;
+.list {
+  border-radius: 30px;
+  --ion-background-color: #F19953;
   }
-  .item-content {
-    background-color: #F19953;
-    display: block;  
-  }
-// label text to be centered
-// ion-label {
-//   left: 50px;
-//   text-align: center;
-// }
-ion-card-title {
-  // left: 40%;
-  bottom: 10%;
-  width: 205px;
-  height: 22px; 
-}
-ion-text {
-  width: 119px;
-  height: 16px;
-}
 
-//div toolbar container position
-#toolbar {
-  bottom: 100%;
+.bottom-toolbar {
+  position: sticky;
 }

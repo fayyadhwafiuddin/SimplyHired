@@ -1,95 +1,65 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Welcome
-    </ion-title>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div id="logo">
+      <img src="assets/img/logo.png">
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Welcome</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="searchbar">
-    <ion-searchbar rounded></ion-searchbar>
-    <ion-button><ion-icon>
-    </ion-icon></ion-button>
-  </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="9">
+          <ion-searchbar></ion-searchbar>
+        </ion-col>
+      
+        <ion-col size="3">
+          <ion-button id="filter" shape="round" size="small">
+            <ion-icon name="color-filter"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
   <ion-list>
-    <ion-item *ngFor="let jobs of jobList">
-      <ion-thumbnail slot="start">
-        <img src="{{ jobs.img }}" alt="">
-      </ion-thumbnail>
-      <ion-label>
-        <h3>{{ jobs.company_name }}</h3>
-        <h3>{{ jobs.job_position }}</h3>
-        <h3>{{ jobs.salary_to | currency}}</h3>
-        <h3>{{ jobs.salary_from | currency}}</h3>
-        <h3>{{ jobs.location}}</h3>
-      </ion-label>
-    </ion-item>
-
+    <ion-card class="list" *ngFor="let jobs of jobList">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img src="{{ jobs.img }}" alt="">
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ jobs.company_name }}</h3>
+          <h3>{{ jobs.job_position }}</h3>
+          <h3>{{ jobs.salary_to | currency}}</h3>
+          <h3>{{ jobs.salary_from | currency}}</h3>
+          <h3>{{ jobs.location}}</h3>
+        </ion-label>
+      </ion-item>
+    </ion-card>
   </ion-list>
 
+  <ion-tabs class="bottom-toolbar">
 
-  <!-- <div id="container">
-    <ion-card>
-        <ion-item>
-          <span class="item-content">
-            <img src="" alt="">
-            <ion-label>
-              <ion-card-title>Receptionist</ion-card-title>
-              <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
-              <ion-text>Salary</ion-text>
-            </ion-label>
-            <ion-button> Apply </ion-button>
-          </span>
-        </ion-item>
-      </ion-card>
-
-    <ion-card>
-      <ion-card-content>
-        <ion-item>
-          <div class="item-content">
-            <img src="" alt="">  
-            <ion-title>Human Resources Business Partner</ion-title>
-            <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
-            <br>
-            <ion-text>Salary</ion-text>
-        </div>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-content>
-        <ion-item>
-            <img src="" alt="">
-          <ion-label text-wrap>
-            <ion-card-title>IT Technician</ion-card-title>
-            <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
-            <ion-text>Salary</ion-text>
-          </ion-label>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-content>
-        <ion-item>
-            <img src="" alt="">
-          <ion-label text-wrap>  
-            <ion-card-title>Programming Lecturer</ion-card-title>
-            <ion-card-subtitle>Politeknik Brunei</ion-card-subtitle>
-            <ion-text>Salary</ion-text>
-          </ion-label>  
-          <ion-button> Apply </ion-button>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
-  </div> -->
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="dashboard">
+        <ion-icon name="easel-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
 </ion-content>
