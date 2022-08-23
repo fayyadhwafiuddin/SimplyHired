@@ -1,0 +1,37 @@
+#logo {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  // searchbar div
+  #searchbar {
+    margin-left: 20px;
+  }
+  ion-searchbar {
+    border-width : 10px; 
+    border-color: #F19953;
+  }
+  
+  #filter {
+  margin-top: 10px;
+  height: 40px;
+  }
+  
+  // toolbar text to be centered
+  ion-toolbar {
+    text-align: center;
+  }
+  
+  // background color for lists
+  .list {
+    border-radius: 30px;
+    --ion-background-color: #F19953;
+    }
+  
+  // for menu navigation
+  .bottom-toolbar {
+    position: sticky;
+  }
