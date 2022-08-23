@@ -31,8 +31,7 @@
 
 // searchbar div
 #searchbar {
-  display: block;
-  margin-bottom: 30px;
+  margin-left: 20px;
 }
 ion-searchbar {
   border-width : 10px;
@@ -49,10 +48,8 @@ ion-toolbar {
   text-align: center;
 }
 
-#Logo {
-  width: 226px;
-  height: 135px;
-  margin: auto;
+ion-label  ion-icon{
+  // margin-right: 10px;
 }
 
 // background color for lists
@@ -61,6 +58,7 @@ ion-toolbar {
   --ion-background-color: #F19953;
   }
 
+// for menu navigation
 .bottom-toolbar {
   position: sticky;
 }

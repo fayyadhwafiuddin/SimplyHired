@@ -12,7 +12,7 @@
 <ion-content [fullscreen]="true">
 
     <ion-grid>
-      <ion-row>
+      <ion-row id="searchbar">
         <ion-col size="9">
           <ion-searchbar></ion-searchbar>
         </ion-col>
@@ -27,16 +27,16 @@
 
   <ion-list>
     <ion-card class="list" *ngFor="let jobs of jobList">
-      <ion-item lines="none">
+      <ion-item>
         <ion-thumbnail slot="start">
           <img src="{{ jobs.img }}" alt="">
         </ion-thumbnail>
-        <ion-label>
-          <h3>{{ jobs.company_name }}</h3>
-          <h3>{{ jobs.job_position }}</h3>
-          <h3>{{ jobs.salary_to | currency}}</h3>
-          <h3>{{ jobs.salary_from | currency}}</h3>
-          <h3>{{ jobs.location}}</h3>
+        <ion-label style="text-align: center;">
+          <h1>{{ jobs.company_name }}</h1>
+          <h2>{{ jobs.job_position }}</h2>
+          <br>
+          <h4><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency}} ~ {{ jobs.salary_to | currency}}</h4>
+          <h4><ion-icon name="pin"></ion-icon> : {{ jobs.location}}</h4>
         </ion-label>
       </ion-item>
     </ion-card>
@@ -45,19 +45,19 @@
   <ion-tabs class="bottom-toolbar">
 
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="profile">
+      <ion-tab-button tab="profile" href="profile.page.html">
         <ion-icon name="person-circle-outline"></ion-icon>
-        <ion-label>Profile</ion-label>
+        <ion-label>Log in as Employer</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="dashboard">
-        <ion-icon name="easel-outline"></ion-icon>
-        <ion-label>Dashboard</ion-label>
+      <ion-tab-button tab="profile" href="profile.page.html">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Log in as Jobseeker</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="settings">
-        <ion-icon name="settings-outline"></ion-icon>
-        <ion-label>Settings</ion-label>
+      <ion-tab-button tab="profile" href="profile.page.html">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Log in as Admin</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   
