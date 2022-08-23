@@ -10,14 +10,8 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="postJobsForm" (submit)="addjobs()" novalidate>
-      <ion-label>Company Name</ion-label>
-      <ion-card>
-      <ion-input formControlName="company_name" type="text" placeholder="Enter Company Name">
-          
-      </ion-input>
-    </ion-card>
-
+  <form [formGroup]="JobsForm" (submit)="addjobs()" novalidate>
+    <ion-grid>
     <ion-label>Job Position</ion-label>
     <ion-card>
         <ion-input formControlName="job_position" type="text" placeholder="Enter Job Position">
@@ -55,10 +49,11 @@
     </ion-card>
 
     <ion-button expand="block" type="submit">POST</ion-button>
+  </ion-grid>
   </form>
 
-  <!-- <ion-tabs class="bottom-toolbar">
-    <ion-tab-bar>
+  <ion-tabs class="bottom-toolbar">
+    <ion-tab-bar slot="bottom">
       <ion-tab-button tab="profile">
         <ion-icon name="person-circle-outline"></ion-icon>
         <ion-label>Profile</ion-label>
@@ -75,5 +70,5 @@
       </ion-tab-button>
     </ion-tab-bar>
   
-  </ion-tabs> -->
+  </ion-tabs>
 </ion-content>

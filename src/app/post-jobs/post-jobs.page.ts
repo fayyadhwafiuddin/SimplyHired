@@ -10,9 +10,10 @@ import { Jobs } from '../models/jobs';
   styleUrls: ['./post-jobs.page.scss'],
 })
 export class PostJobsPage implements OnInit {
-  public postJobsForm: FormGroup;
+  public JobsForm: FormGroup;
+  
   constructor(public formBuilder: FormBuilder)
-   { this.postJobsForm = this.formBuilder.group ({
+   { this.JobsForm = this.formBuilder.group ({
      img: ['', Validators.compose([Validators.required])],
      company_name: ['', Validators.compose([Validators.required])],
      job_position: ['', Validators.compose([Validators.required])],
@@ -27,13 +28,13 @@ export class PostJobsPage implements OnInit {
   ngOnInit() {
   }
 
-  addjobs(): void{
+  addjobs(){
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
     const jobCollection = collection(db, `jobposted`);
 
-    addDoc(jobCollection, this.postJobsForm.value);
-    console.log(this.postJobsForm.value);
+    addDoc(jobCollection, this.JobsForm.value);
+    console.log(this.JobsForm.value);
   }
   
 }
