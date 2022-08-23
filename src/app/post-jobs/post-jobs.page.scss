@@ -1,0 +1,26 @@
+#logo {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+ion-label{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+ion-card{
+  --ion-background-color: #F19953;
+}
+
+for menu navigation
+.bottom-toolbar {
+    position: sticky;
+    // z-index: 2;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }

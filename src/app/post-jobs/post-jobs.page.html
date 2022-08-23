@@ -1,61 +1,79 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>post-jobs</ion-title>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div id="logo">
+      <img src="assets/img/logo.png">
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content [fullscreen]="true">
   <form [formGroup]="postJobsForm" (submit)="addjobs()" novalidate>
-    <ion-item>
-      <ion-label>Comapny Name</ion-label>
-        <ion-input formControlName="company_name" type="text" placeholder="type company name">
+      <ion-label>Company Name</ion-label>
+      <ion-card>
+      <ion-input formControlName="company_name" type="text" placeholder="Enter Company Name">
+          
+      </ion-input>
+    </ion-card>
+
+    <ion-label>Job Position</ion-label>
+    <ion-card>
+        <ion-input formControlName="job_position" type="text" placeholder="Enter Job Position">
           
         </ion-input>
-    </ion-item>
+    </ion-card>
 
-    <ion-item>
-      <ion-label>Job Position</ion-label>
-        <ion-input formControlName="job_position" type="text" placeholder="type job position">
+    <ion-label>Salary min</ion-label>
+    <ion-card>
+        <ion-input formControlName="salary_from" type="number" format="currency" placeholder="Amount">
           
         </ion-input>
-    </ion-item>
+    </ion-card>
 
-    <ion-item>
-      <ion-label>Address</ion-label>
-        <ion-textarea formControlName="location" placeholder="type job company address">
+    <ion-label>Salary max</ion-label>
+    <ion-card>
+        <ion-input formControlName="salary_to" type="number" currency placeholder="Amount">
+          
+        </ion-input>
+    </ion-card>
+
+    <ion-label>Requirements</ion-label>
+    <ion-card>
+        <ion-textarea formControlName="requirement" placeholder="Enter Job requirement">
           
         </ion-textarea>
-    </ion-item>
+    </ion-card>
 
-    <ion-item>
-      <ion-label>Salary min</ion-label>
-        <ion-input formControlName="salary_from" type="number" format="currency" placeholder="type here">
-          
-        </ion-input>
-    </ion-item>
 
-    <ion-item>
-      <ion-label>Salary max</ion-label>
-        <ion-input formControlName="salary_to" type="number" currency placeholder="type here">
-          
-        </ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Requirements</ion-label>
-        <ion-textarea formControlName="requirement" placeholder="Job requirement">
+    <ion-label>More Info</ion-label>
+    <ion-card>
+        <ion-textarea formControlName="more_info" placeholder="Enter your information">
           
         </ion-textarea>
-    </ion-item>
+    </ion-card>
 
-
-    <ion-item>
-      <ion-label>More Info</ion-label>
-        <ion-textarea formControlName="more_info" placeholder="Any additional information for seekers">
-          
-        </ion-textarea>
-    </ion-item>
-
-    <ion-button expand="block" type="submit">add</ion-button>
+    <ion-button expand="block" type="submit">POST</ion-button>
   </form>
+
+  <!-- <ion-tabs class="bottom-toolbar">
+    <ion-tab-bar>
+      <ion-tab-button tab="profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="dashboard">
+        <ion-icon name="easel-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs> -->
 </ion-content>
