@@ -30,24 +30,19 @@
       <ion-item>
         <ion-grid>
             <ion-row>
-                  <ion-col size="3">    
-                    <ion-thumbnail>
+                  <ion-col size="4" class="ion-align-self-center">    
                       <!-- <img src="{{ jobs.img }}" alt=""> -->
-                      <img src="assets/img/logo.png" alt="">
-                    </ion-thumbnail>
+                      <ion-img shape="round" src="assets/img/logo.jpeg" alt="" width="100px" height="100px"></ion-img>
                   </ion-col>
 
-                  <ion-col size="6">    
-                    <ion-label style="text-align: center;">
-                      <h1>{{ jobs.company_name }}</h1>
-                      <h2>{{ jobs.job_position }}</h2>
-                      <br>
-                      <h4><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency}} ~ {{ jobs.salary_to | currency}}</h4>
-                      <h4><ion-icon name="pin"></ion-icon> : {{ jobs.location}}</h4>
-                    </ion-label>
+                  <ion-col class="ion-align-self-center">    
+                      <p>{{ jobs.company_name }}</p>
+                      <p>{{ jobs.job_position }}</p>
+                      <p><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency}} ~ {{ jobs.salary_to | currency}}</p>
+                      <p><ion-icon name="pin"></ion-icon> : {{ jobs.location}}</p>
                   </ion-col>
 
-                  <ion-col style="text-align: center; margin-top: 20px;">
+                  <ion-col class="ion-align-self-center">
                       <ion-button size="small" shape="round">apply</ion-button>
                       <ion-button size="small" shape="round">more info</ion-button>
                   </ion-col>
