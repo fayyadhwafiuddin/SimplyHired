@@ -10,45 +10,70 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="JobsForm" (submit)="addjobs()" novalidate>
+  <form [formGroup]="JobsForm" (submit)="Postjobs()" novalidate>
     <ion-grid>
     <ion-label>Job Position</ion-label>
     <ion-card>
-        <ion-input formControlName="job_position" type="text" placeholder="Enter Job Position">
+        <ion-input formControlName="job_position" type="text" placeholder="Enter Job Position" required>
           
         </ion-input>
-    </ion-card>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('job_position').touched && JobsForm.get('job_position').touched)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
+      </ion-card>
 
     <ion-label>Salary min</ion-label>
     <ion-card>
-        <ion-input formControlName="salary_from" type="number" format="currency" placeholder="Amount">
+        <ion-input formControlName="salary_from" type="number" format="currency" placeholder="Amount" required>
           
         </ion-input>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('salary_from').touched && JobsForm.get('salary_from').touched)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
     </ion-card>
 
     <ion-label>Salary max</ion-label>
     <ion-card>
-        <ion-input formControlName="salary_to" type="number" currency placeholder="Amount">
+        <ion-input formControlName="salary_to" type="number" currency placeholder="Amount" required>
           
         </ion-input>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('salary_to').touched && JobsForm.get('salary_to').touched)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
     </ion-card>
 
     <ion-label>Requirements</ion-label>
     <ion-card>
-        <ion-textarea formControlName="requirement" placeholder="Enter Job requirement">
+        <ion-textarea formControlName="requirement" placeholder="Enter Job requirement" required>
           
         </ion-textarea>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('requirement').touched && JobsForm.get('requirement').touched)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
     </ion-card>
 
 
     <ion-label>More Info</ion-label>
     <ion-card>
-        <ion-textarea formControlName="more_info" placeholder="Enter your information">
+        <ion-textarea formControlName="more_info" placeholder="Enter your information" required>
           
         </ion-textarea>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('more_info').touched && JobsForm.get('more_info').touched)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
     </ion-card>
 
-    <ion-button expand="block" type="submit">POST</ion-button>
+    <ion-button id="confirm" expand="block" type="submit" enabled="required">POST</ion-button>
   </ion-grid>
   </form>
 

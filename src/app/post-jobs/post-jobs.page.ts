@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActionSheetController } from '@ionic/angular';
 import { getApp } from 'firebase/app';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { Jobs } from '../models/jobs';
@@ -11,8 +12,12 @@ import { Jobs } from '../models/jobs';
 })
 export class PostJobsPage implements OnInit {
   public JobsForm: FormGroup;
+  presentingElement = undefined;
+
+  err_msg = 'Required!!';
   
-  constructor(public formBuilder: FormBuilder)
+  constructor(public formBuilder: FormBuilder,
+    private actionSheetCtrl: ActionSheetController)
    { this.JobsForm = this.formBuilder.group ({
      img: ['', Validators.compose([Validators.required])],
      company_name: ['', Validators.compose([Validators.required])],
@@ -26,16 +31,44 @@ export class PostJobsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.presentingElement = document.querySelector('.ion-page');
   }
-
-  addjobs(){
+  Postjobs = async () => {
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
     const jobCollection = collection(db, `jobposted`);
 
-    addDoc(jobCollection, this.JobsForm.value);
-    console.log(this.JobsForm.value);
-  }
-  
+    const actionSheet = await this.actionSheetCtrl.create({
+      header: 'Post Form?',
+      buttons: [
+        {
+          text: 'Yes',
+          role: 'confirm',
+          handler: () => {
+            addDoc(jobCollection, this.JobsForm.value);
+            console.log(this.JobsForm.value);
+          }
+        },
+        {
+          text: 'No',
+          role: 'cancel',
+        },
+      ],
+    });
+
+    actionSheet.present();
+
+    const { role } = await actionSheet.onWillDismiss();
+
+    return role === 'confirm';
+  };
+  // addjobs(){
+  //   const firebaseApp = getApp();
+  //   const db = getFirestore(firebaseApp);
+  //   const jobCollection = collection(db, `jobposted`);
+
+  //   addDoc(jobCollection, this.JobsForm.value);
+  //   console.log(this.JobsForm.value);
+  // }  
 }
 
