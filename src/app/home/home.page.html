@@ -28,16 +28,21 @@
   <ion-list>
     <ion-card class="list" *ngFor="let jobs of jobList">
       <ion-item>
-        <ion-thumbnail slot="start">
-          <img src="{{ jobs.img }}" alt="">
-        </ion-thumbnail>
-        <ion-label style="text-align: center;">
-          <h1>{{ jobs.company_name }}</h1>
-          <h2>{{ jobs.job_position }}</h2>
-          <br>
-          <h4><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency}} ~ {{ jobs.salary_to | currency}}</h4>
-          <h4><ion-icon name="pin"></ion-icon> : {{ jobs.location}}</h4>
-        </ion-label>
+        <ion-grid>
+            <ion-row>
+                  <ion-col size="3" class="ion-align-self-center">    
+                      <!-- <img src="{{ jobs.img }}" alt=""> -->
+                      <ion-img shape="round" src="assets/img/pblog.png" alt=""></ion-img>
+                  </ion-col>
+
+                  <ion-col class="ion-align-self-center ion-text-center">    
+                      <p id="title">{{ jobs.company_name }}</p>
+                      <p id="subtitle">{{ jobs.job_position }}</p>
+                      <p class="text"><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency }} ~ {{ jobs.salary_to | currency }}</p>
+                      <p class="text"><ion-icon name="pin"></ion-icon> : {{ jobs.location }}</p>
+                  </ion-col>
+            </ion-row>
+        </ion-grid>
       </ion-item>
     </ion-card>
   </ion-list>

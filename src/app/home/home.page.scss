@@ -54,6 +54,20 @@ ion-toolbar {
   --ion-background-color: #F19953;
   }
 
+  #title{
+    font-size: 14px;
+    font-weight: bolder;
+  }
+
+  #subtitle{
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .text{
+    font-size: 10px;
+  }
+
 // for menu navigation
 .bottom-toolbar {
   position: sticky;
