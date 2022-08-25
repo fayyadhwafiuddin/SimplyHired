@@ -39,4 +39,11 @@ export class FindJobsPage implements OnInit {
     });
   }
 
+  isModalOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+    console.log(this.isModalOpen);
+  }
+
 }

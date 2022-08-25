@@ -30,21 +30,37 @@
       <ion-item>
         <ion-grid>
             <ion-row>
-                  <ion-col size="4" class="ion-align-self-center">    
+                  <ion-col size="3" class="ion-align-self-center">    
                       <!-- <img src="{{ jobs.img }}" alt=""> -->
-                      <ion-img shape="round" src="assets/img/logo.jpeg" alt="" width="100px" height="100px"></ion-img>
+                      <ion-img shape="round" src="assets/img/pblog.png" alt=""></ion-img>
                   </ion-col>
 
-                  <ion-col class="ion-align-self-center">    
-                      <p>{{ jobs.company_name }}</p>
-                      <p>{{ jobs.job_position }}</p>
-                      <p><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency}} ~ {{ jobs.salary_to | currency}}</p>
-                      <p><ion-icon name="pin"></ion-icon> : {{ jobs.location}}</p>
+                  <ion-col class="ion-align-self-center ion-text-center">    
+                      <p id="title">{{ jobs.company_name }}</p>
+                      <p id="subtitle">{{ jobs.job_position }}</p>
+                      <p class="text"><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency }} ~ {{ jobs.salary_to | currency }}</p>
+                      <p class="text"><ion-icon name="pin"></ion-icon> : {{ jobs.location }}</p>
                   </ion-col>
 
-                  <ion-col class="ion-align-self-center">
-                      <ion-button size="small" shape="round">apply</ion-button>
-                      <ion-button size="small" shape="round">more info</ion-button>
+                  <ion-col class="ion-align-self-center ion-text-end">
+                      <ion-button class="twobutton" size="small" shape="round">apply</ion-button>
+                      <ion-button class="twobutton" size="small" shape="round" (click)="setOpen(true)">more info</ion-button>
+
+                      <ion-modal [isOpen]="isModalOpen">
+                        <ng-template>
+                          <ion-header>
+                            <ion-toolbar>
+                              <ion-title>Modal</ion-title>
+                              <ion-buttons slot="end">
+                                <ion-button (click)="setOpen(false)">Close</ion-button>
+                              </ion-buttons>
+                            </ion-toolbar>
+                          </ion-header>
+                          <ion-content class="ion-padding">
+                            
+                          </ion-content>
+                        </ng-template>
+                      </ion-modal>
                   </ion-col>
             </ion-row>
         </ion-grid>
@@ -52,9 +68,9 @@
     </ion-card>
   </ion-list>
 
-  <ion-tabs class="bottom-toolbar">
+  <ion-footer>
 
-    <ion-tab-bar slot="bottom">
+    <ion-toolbar slot="bottom">
       <ion-tab-button tab="profile" href="profile.page.html">
         <ion-icon name="person-circle-outline"></ion-icon>
         <ion-label>Profile</ion-label>
@@ -69,8 +85,8 @@
         <ion-icon name="settings-outline"></ion-icon>
         <ion-label>Settings</ion-label>
       </ion-tab-button>
-    </ion-tab-bar>
+    </ion-toolbar>
   
-  </ion-tabs>
+  </ion-footer>
 </ion-content>
 

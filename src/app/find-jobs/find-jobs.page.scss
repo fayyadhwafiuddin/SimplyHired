@@ -30,6 +30,27 @@
     border-radius: 30px;
     --ion-background-color: #F19953;
     }
+
+    #title{
+      font-size: 14px;
+      font-weight: bolder;
+    }
+
+    #subtitle{
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .text{
+      font-size: 10px;
+    }
+
+  .twobutton{
+    font-size: 10px;
+    width: 70px;
+    height: 20px;
+    --background:#C47335;
+  }
   
   // for menu navigation
   .bottom-toolbar {
