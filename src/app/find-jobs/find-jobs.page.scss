@@ -52,7 +52,26 @@
     --background:#C47335;
   }
   
+  //for modal
+  .modallist{
+    height: 80%;
+    width: 80%;
+    --ion-background-color: #F19953;
+  }
+
+  #modaltitle{
+    font-size: 30px;
+  }
+
+  #modalsubtitle{
+    
+  }
+
+  .modaltext{
+    
+  }
+
   // for menu navigation
-  .bottom-toolbar {
+  ion-footer {
     position: sticky;
   }

@@ -26,13 +26,13 @@
     </ion-grid>
 
   <ion-list>
-    <ion-card class="list" *ngFor="let jobs of jobList">
+    <ion-card class="list" *ngFor="let jobs of jobList; let i = index">
       <ion-item>
         <ion-grid>
             <ion-row>
                   <ion-col size="3" class="ion-align-self-center">    
                       <!-- <img src="{{ jobs.img }}" alt=""> -->
-                      <ion-img shape="round" src="assets/img/pblog.png" alt=""></ion-img>
+                      <ion-img src="assets/img/pblog.png" alt=""></ion-img>
                   </ion-col>
 
                   <ion-col class="ion-align-self-center ion-text-center">    
@@ -44,7 +44,7 @@
 
                   <ion-col class="ion-align-self-center ion-text-end">
                       <ion-button class="twobutton" size="small" shape="round">apply</ion-button>
-                      <ion-button class="twobutton" size="small" shape="round" (click)="setOpen(true)">more info</ion-button>
+                      <ion-button class="twobutton" size="small" shape="round" (click)="setOpen(true); getitem(i)" >more info</ion-button>
 
                       <ion-modal [isOpen]="isModalOpen">
                         <ng-template>
@@ -57,7 +57,48 @@
                             </ion-toolbar>
                           </ion-header>
                           <ion-content class="ion-padding">
-                            
+                            <ion-item>
+                              <ion-card class="modallist">
+                                <ion-grid>
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltitle">{{ onjob[0].job_position}}</p>
+                                    </ion-col>
+                                  </ion-row>
+                                  
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modalsubtitle">{{ onjob[0].company_name}}</p>
+                                    </ion-col>
+                                  </ion-row>
+                                  
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <ion-img class="ion-text-center" [src]="onjob[0].img"></ion-img>
+                                    </ion-col>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltext"><ion-icon> </ion-icon> : {{ onjob[0].salary_from}} - {{ onjob[0].salary_to}} </p>
+                                    </ion-col>
+                                  </ion-row>
+                                  
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltext"><ion-icon> </ion-icon> : {{ onjob[0].requirement}} </p>
+                                    </ion-col>
+                                  </ion-row>
+                                  
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltext"><ion-icon> </ion-icon> : {{ onjob[0].more_info}} </p>
+                                    </ion-col>
+                                  </ion-row>
+
+                                </ion-grid>
+                              </ion-card>
+                            </ion-item>
                           </ion-content>
                         </ng-template>
                       </ion-modal>
@@ -69,24 +110,22 @@
   </ion-list>
 
   <ion-footer>
-
-    <ion-toolbar slot="bottom">
-      <ion-tab-button tab="profile" href="profile.page.html">
+    <ion-tab-bar>
+      <ion-tab-button>
         <ion-icon name="person-circle-outline"></ion-icon>
         <ion-label>Profile</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="dashboard">
+      <ion-tab-button>
         <ion-icon name="easel-outline"></ion-icon>
         <ion-label>Dashboard</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="settings">
+      <ion-tab-button>
         <ion-icon name="settings-outline"></ion-icon>
         <ion-label>Settings</ion-label>
       </ion-tab-button>
-    </ion-toolbar>
-  
+    </ion-tab-bar>
   </ion-footer>
 </ion-content>
 
