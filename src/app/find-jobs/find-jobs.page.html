@@ -50,15 +50,17 @@
                         <ng-template>
                           <ion-header>
                             <ion-toolbar>
-                              <ion-title>Modal</ion-title>
+                              <div>
+                                <img src="assets/img/logo.png">
+                              </div>
                               <ion-buttons slot="end">
                                 <ion-button (click)="setOpen(false)">Close</ion-button>
                               </ion-buttons>
                             </ion-toolbar>
                           </ion-header>
-                          <ion-content class="ion-padding">
-                            <ion-item>
-                              <ion-card class="modallist">
+                          <ion-content>
+                            <ion-item class="modallist">
+                              <!-- <ion-card class="modallist"> -->
                                 <ion-grid>
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
@@ -80,24 +82,38 @@
 
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon> </ion-icon> : {{ onjob[0].salary_from}} - {{ onjob[0].salary_to}} </p>
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="logo-usd"></ion-icon> : {{ onjob[0].salary_from}} - {{ onjob[0].salary_to}} </p>
                                     </ion-col>
                                   </ion-row>
                                   
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon> </ion-icon> : {{ onjob[0].requirement}} </p>
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="navigate"></ion-icon> : {{ onjob[0].location}}</p>
+                                    </ion-col>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="document"></ion-icon> : {{ onjob[0].requirement}} </p>
                                     </ion-col>
                                   </ion-row>
                                   
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon> </ion-icon> : {{ onjob[0].more_info}} </p>
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="newspaper-outline"></ion-icon> : {{ onjob[0].more_info}} </p>
+                                    </ion-col>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <ion-button id="modalbtn" shape="round" expand="block">
+                                        Apply
+                                      </ion-button>
                                     </ion-col>
                                   </ion-row>
 
                                 </ion-grid>
-                              </ion-card>
+                              <!-- </ion-card> -->
                             </ion-item>
                           </ion-content>
                         </ng-template>

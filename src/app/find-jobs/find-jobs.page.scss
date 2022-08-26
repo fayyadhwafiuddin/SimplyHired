@@ -54,8 +54,6 @@
   
   //for modal
   .modallist{
-    height: 80%;
-    width: 80%;
     --ion-background-color: #F19953;
   }
 
@@ -64,11 +62,15 @@
   }
 
   #modalsubtitle{
-    
+    font-size: 16px;
   }
 
   .modaltext{
-    
+    font-size: 20px;
+  }
+
+  #modalbtn{
+    --background: #C47335;
   }
 
   // for menu navigation
