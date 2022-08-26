@@ -35,6 +35,7 @@ export class HomePage implements OnInit{
         requirement: doc.data().requirement,
         salary_from: doc.data().salary_from,
         salary_to: doc.data().salary_to,
+        post_duration: doc.data().post_duration,
       });
 
       //this is just to show if data can be retrieved
