@@ -27,6 +27,7 @@ export class PostJobsPage implements OnInit {
      salary_from: ['', Validators.compose([Validators.required])],
      requirement: ['', Validators.compose([Validators.required])],
      more_info: ['', Validators.compose([Validators.required])],
+     post_duration: ['', Validators.compose([Validators.required])],
    }); 
   }
 
