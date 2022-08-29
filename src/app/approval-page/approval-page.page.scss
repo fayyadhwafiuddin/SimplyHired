@@ -1,0 +1,83 @@
+#logo {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  // searchbar div
+  #searchbar {
+    margin-left: 20px;
+  }
+  ion-searchbar {
+    border-width : 10px; 
+    border-color: #F19953;
+  }
+  
+  #filter {
+  margin-top: 10px;
+  height: 40px;
+  }
+  
+  // toolbar text to be centered
+  ion-toolbar {
+    text-align: center;
+  }
+  
+  // background color for lists
+  .list {
+    border-radius: 30px;
+    --ion-background-color: #F19953;
+    }
+
+    #title{
+      font-size: 14px;
+      font-weight: bolder;
+    }
+
+    #subtitle{
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .text{
+      font-size: 10px;
+    }
+
+  .twobutton{
+    font-size: 10px;
+    width: 70px;
+    height: 20px;
+    --background:#C47335;
+  }
+  
+  //for modal
+  .modallist{
+    --ion-background-color: #F19953;
+  }
+
+  #modaltitle{
+    font-size: 30px;
+  }
+
+  #modalsubtitle{
+    font-size: 16px;
+  }
+
+  .modaltext{
+    font-size: 20px;
+  }
+
+  #modalbtn{
+    --background: #C47335;
+  }
+
+  // for menu navigation
+  .footer {
+    position: absolute;
+    left: -2px;
+    bottom: -1px;
+    width: 100%;
+    height: 2.5rem;
+  }

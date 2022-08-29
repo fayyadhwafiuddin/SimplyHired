@@ -43,6 +43,14 @@ const routes: Routes = [
     path: 'models',
     loadChildren: () => import('./models/models.module').then( m => m.ModelsPageModule)
   },
+  {
+    path: 'admin-homepage',
+    loadChildren: () => import('./admin-homepage/admin-homepage.module').then( m => m.AdminHomepagePageModule)
+  },
+  {
+    path: 'approval-page',
+    loadChildren: () => import('./approval-page/approval-page.module').then( m => m.ApprovalPagePageModule)
+  },
 ];
 
 @NgModule({
