@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: DashboardPage
+  },
+  {
+    path: 'application-status',
+    loadChildren: () => import('./application-status/application-status.module').then( m => m.ApplicationStatusPageModule)
   }
 ];
 

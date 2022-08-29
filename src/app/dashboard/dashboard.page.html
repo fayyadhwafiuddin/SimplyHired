@@ -23,7 +23,7 @@
         <div class="buttonbox">Find Jobs</div>
       </ion-col>
       <ion-col>
-        <div class="buttonbox">Application Status</div>
+        <div class="buttonbox" >Application Status</div>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -31,26 +31,28 @@
   <ion-grid>
     <div class="bigbox"></div>
   </ion-grid>
-  
+</ion-content>
+
+<ion-footer class="footer">
   <ion-tabs>
 
     <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="profile">
+      <ion-tab-button tab="profile" routerLink="/profile">
         <ion-icon name="person-circle-outline"></ion-icon>
         <ion-label>Profile</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="dashboard">
+      <ion-tab-button tab="dashboard" routerLink="/dashboard">
         <ion-icon name="easel-outline"></ion-icon>
         <ion-label>Dashboard</ion-label>
       </ion-tab-button>
   
-      <ion-tab-button tab="settings">
+      <ion-tab-button tab="settings" routerLink="/settings">
         <ion-icon name="settings-outline"></ion-icon>
         <ion-label>Settings</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   
   </ion-tabs>
-</ion-content>
+</ion-footer>
 

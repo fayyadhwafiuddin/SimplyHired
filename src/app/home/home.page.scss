@@ -69,6 +69,11 @@ ion-toolbar {
   }
 
 // for menu navigation
-.bottom-toolbar {
-  position: sticky;
+
+footer {
+  position: absolute;
+  left: -2px;
+  bottom: 3px;
+  width: 100%;
+  height: 2.5rem;
 }

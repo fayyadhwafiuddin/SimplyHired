@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Application status</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngFor="let jobs of jobList"> 
+    <ion-thumbnail>
+      <ion-img src="{{jobs.img}}" ></ion-img>
+    </ion-thumbnail>
+    <br>
+      <ion-label class="ion-text-wrap" >{{jobs.occupation}}</ion-label><br>
+      <ion-label>{{jobs.salary}}</ion-label><br>
+      <ion-label>{{jobs.location }}</ion-label><br>
+      <ion-button class="statusB" >{{jobs.status }}</ion-button>
+      
+
+  </ion-card>
+
+  <!-- <ion-list class="list" *ngFor="let jobs of jobList">
+    <ion-item>
+      <ion-thumbnail>
+        <ion-img src="{{jobs.imageUrl}}" ></ion-img>
+      </ion-thumbnail>
+      
+      <br>
+      <ion-label class="ion-text-wrap" >{{jobs.occupation}}</ion-label><br>
+      <ion-label>{{jobs.salary}}</ion-label><br>
+      <ion-label>{{jobs.location }}</ion-label>
+      <ion-label>{{jobs.status }}</ion-label>
+    </ion-item>
+  </ion-list> -->
+
+</ion-content>
+
+<ion-footer class="footer">
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="profile" routerLink="/profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="dashboard" routerLink="/dashboard">
+        <ion-icon name="easel-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="settings" routerLink="/settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+</ion-footer>
+
+
+
+
+
+
+
+
+  
+  
+  <!-- <div><ion-icon name="person-outline"></ion-icon> Profile</div>
+  
+  <div><ion-icon name="home-outline"></ion-icon> Home</div>
+
+  <div><ion-icon name="cog-outline"></ion-icon> Settings</div> -->
+
+  
+

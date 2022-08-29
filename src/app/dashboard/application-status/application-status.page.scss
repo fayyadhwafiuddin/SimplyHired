@@ -1,0 +1,42 @@
+ion-card{
+    --background:#F19953;
+    color: black;
+}
+
+ion-card-title,ion-card-subtitle,ion-card-content{
+color: black;
+}
+
+ion-content{
+    --background: #EDF7F6;
+}
+
+.appStat{
+    --background:#C47335;
+    margin-left: 100px;
+    margin-top: 30px;
+}
+
+.list{
+    height: max-content;
+    color: #EDF7F6;
+}
+
+ion-list{
+    --background:#F19953;
+}
+
+.statusB{
+    // float: right;
+    background-color: #C47335;
+    margin-left: 120px;
+    margin-top: 30px;
+}
+
+.footer {
+    position: absolute;
+    left: -2px;
+    bottom: -2px;
+    width: 100%;
+    height: 3rem;
+  }

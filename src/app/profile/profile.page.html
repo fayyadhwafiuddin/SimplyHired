@@ -1,9 +1,67 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
+    <ion-icon name="arrow-back" class="back"></ion-icon>
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+  <ion-row>
+    <ion-avatar class="profile">
+      <img src="../assets/img/user 1.png">
+    </ion-avatar>
+  </ion-row>
+  <ion-row class="edit">
+    <p routerLink="">Edit Profile <ion-icon name="create" class="change"></ion-icon></p>
+  </ion-row>
 
+    <ion-row class="row">
+      <h3>Username:</h3>
+    </ion-row>
+    <ion-row class="row">
+      <h3>Email:</h3>
+    </ion-row>
+    <ion-row class="row">
+      <h3>Career Status:</h3>
+    </ion-row>
+
+    <ion-row class="info">
+      <h2>More Info</h2>
+    </ion-row>
+    <ion-row class="more">
+      <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur vel totam deleniti.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </ion-row>
+
+    <ion-row class="edit1">
+      <p>Upload Certificates <ion-icon name="arrow-up"></ion-icon></p>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer class="footer">
+  <ion-tabs>
+
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="profile" routerLink="/profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="dashboard" routerLink="/dashboard">
+        <ion-icon name="easel-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="settings" routerLink="/settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  
+  </ion-tabs>
+</ion-footer>

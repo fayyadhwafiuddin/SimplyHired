@@ -74,6 +74,10 @@
   }
 
   // for menu navigation
-  ion-footer {
-    position: sticky;
+  .footer {
+    position: absolute;
+    left: -2px;
+    bottom: -1px;
+    width: 100%;
+    height: 2.5rem;
   }
