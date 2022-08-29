@@ -3,10 +3,12 @@ export interface Jobs {
     company_name: string;
     job_position: string;
     location: string;
-    salary_to: number;
+    category: string,
+    qualification: string;
     salary_from: number;
+    salary_to: number;
     requirement: string;
-    more_info: string;
+    candidate_types : string;
     post_duration: number;
   }
 
@@ -15,8 +17,11 @@ export interface Jobs {
     company_name: string;
     job_position: string;
     location: string;
-    salary_to: number;
+    category: string,
+    qualification: string;
     salary_from: number;
+    salary_to: number;
     requirement: string;
-    more_info: string;
+    candidate_types : string;
+    post_duration: number;
   }
