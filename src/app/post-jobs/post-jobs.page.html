@@ -10,19 +10,48 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="JobsForm" (submit)="Postjobs()" novalidate>
+  <form [formGroup]="JobsForm" (submit)="Postjobs()">
     <ion-grid>
     <ion-label>Job Position</ion-label>
     <ion-card>
-        <ion-input formControlName="job_position" type="text" placeholder="Enter Job Position" required>
+        <ion-input formControlName="job_position" id="job_position" type="text" placeholder="Enter Job Position" required>
           
         </ion-input>
         <ng-container>
-          <div *ngIf="(JobsForm.get('job_position').touched && JobsForm.get('job_position').touched)">
+          <div *ngIf="(JobsForm.get('job_position').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
       </ion-card>
+
+      <ion-label>Category</ion-label>
+    <ion-card>
+        <ion-input formControlName="category" id="category" type="text" placeholder="Enter Skills Category such as IT, Admin, " required>
+          
+        </ion-input>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('category').required)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
+      </ion-card>
+
+      <ion-label>Qualification</ion-label>
+      <ion-card>
+        <ion-select formControlName="qualification" interface="action-sheet" placeholder="Select Qualification">
+          <ion-select-option value="O' Level">O' Level</ion-select-option>
+          <ion-select-option value="A' Level">A' Level</ion-select-option>
+          <ion-select-option value="Diploma">Diploma</ion-select-option>
+          <ion-select-option value="HND">HND</ion-select-option>
+          <ion-select-option value="Degree">Degree</ion-select-option>
+          <ion-select-option value="Master">Master</ion-select-option>
+        </ion-select>
+          <ng-container>
+            <div *ngIf="(JobsForm.get('qualification').required)">
+              <ion-label color="danger">{{ err_msg }}</ion-label>
+            </div>
+          </ng-container>
+        </ion-card>
 
     <ion-label>Salary min</ion-label>
     <ion-card>
@@ -30,7 +59,7 @@
           
         </ion-input>
         <ng-container>
-          <div *ngIf="(JobsForm.get('salary_from').touched && JobsForm.get('salary_from').touched)">
+          <div *ngIf="(JobsForm.get('salary_from').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
@@ -42,7 +71,7 @@
           
         </ion-input>
         <ng-container>
-          <div *ngIf="(JobsForm.get('salary_to').touched && JobsForm.get('salary_to').touched)">
+          <div *ngIf="(JobsForm.get('salary_to').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
@@ -50,24 +79,27 @@
 
     <ion-label>Requirements</ion-label>
     <ion-card>
-        <ion-textarea formControlName="requirement" placeholder="Enter Job requirement" required>
+        <ion-textarea id="requirement" name="requirement" formControlName="requirement" placeholder="Enter Job requirement" required>
           
         </ion-textarea>
         <ng-container>
-          <div *ngIf="(JobsForm.get('requirement').touched && JobsForm.get('requirement').touched)">
+          <div *ngIf="(JobsForm.get('requirement').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
 
-
-    <ion-label>More Info</ion-label>
+    <ion-label>Candidate Types</ion-label>
     <ion-card>
-        <ion-textarea formControlName="more_info" placeholder="Enter your information" required>
-          
-        </ion-textarea>
+
+      <ion-select formControlName="candidate_types" interface="action-sheet" placeholder="Select fruit">
+        <ion-select-option value="Part-time">Part-time</ion-select-option>
+        <ion-select-option value="Fulltime">Fulltime</ion-select-option>
+        <ion-select-option value="Internship">Internship</ion-select-option>
+      </ion-select>
+
         <ng-container>
-          <div *ngIf="(JobsForm.get('more_info').touched && JobsForm.get('more_info').touched)">
+          <div *ngIf="(JobsForm.get('candidate_types').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
@@ -79,7 +111,7 @@
           
         </ion-textarea>
         <ng-container>
-          <div *ngIf="(JobsForm.get('post_duration').touched && JobsForm.get('post_duration').touched)">
+          <div *ngIf="(JobsForm.get('post_duration').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>

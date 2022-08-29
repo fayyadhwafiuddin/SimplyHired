@@ -31,11 +31,13 @@ export class FindJobsPage implements OnInit {
         company_name : doc.data().company_name,
         img : doc.data().img,
         job_position : doc.data().job_position,
+        category : doc.data().category,
         location: doc.data().location,
-        more_info: doc.data().more_info,
-        requirement: doc.data().requirement,
+        qualification:doc.data().qualification,
         salary_from: doc.data().salary_from,
         salary_to: doc.data().salary_to,
+        requirement: doc.data().requirement,
+        candidate_types: doc.data().candidate_types,
         post_duration: doc.data().post_duration,
       });
 
@@ -46,11 +48,13 @@ export class FindJobsPage implements OnInit {
         company_name : doc.data().company_name,
         img : doc.data().img,
         job_position : doc.data().job_position,
+        category : doc.data().category,
         location: doc.data().location,
-        more_info: doc.data().more_info,
-        requirement: doc.data().requirement,
+        qualification:doc.data().qualification,
         salary_from: doc.data().salary_from,
         salary_to: doc.data().salary_to,
+        requirement: doc.data().requirement,
+        candidate_types: doc.data().candidate_types,
       });
 
     });
@@ -74,11 +78,13 @@ export class FindJobsPage implements OnInit {
     company_name : this.currentjob[item].company_name,
     img : this.currentjob[item].img,
     job_position : this.currentjob[item].job_position,
+    category: this.currentjob[item].category,
+    qualification: this.currentjob[item].qualification,
     location: this.currentjob[item].location,
-    more_info: this.currentjob[item].more_info,
-    requirement: this.currentjob[item].requirement,
     salary_from: this.currentjob[item].salary_from,
     salary_to: this.currentjob[item].salary_to,
+    requirement: this.currentjob[item].requirement,
+    candidate_types: this.currentjob[item].candidate_types,
   }];
   console.log(this.onjob);
  }

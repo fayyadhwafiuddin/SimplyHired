@@ -70,7 +70,7 @@
                                   
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modalsubtitle">{{ onjob[0].company_name}}</p>
+                                      <p class="ion-text-center" id="modalsubtitle">company_name {{ onjob[0].company_name}}</p>
                                     </ion-col>
                                   </ion-row>
                                   
@@ -85,6 +85,18 @@
                                       <p class="ion-text-center" id="modaltext"><ion-icon name="logo-usd"></ion-icon> : {{ onjob[0].salary_from}} - {{ onjob[0].salary_to}} </p>
                                     </ion-col>
                                   </ion-row>
+
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltext"> Category: {{ onjob[0].category}}</p>
+                                    </ion-col>
+                                  </ion-row>
+
+                                  <ion-row>
+                                    <ion-col class="ion-align-self-center">
+                                      <p class="ion-text-center" id="modaltext"> {{ onjob[0].qualification}}</p>
+                                    </ion-col>
+                                  </ion-row>
                                   
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
@@ -94,13 +106,13 @@
 
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon name="document"></ion-icon> : {{ onjob[0].requirement}} </p>
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="document"></ion-icon>requirement : {{ onjob[0].requirement}}</p>
                                     </ion-col>
                                   </ion-row>
                                   
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon name="newspaper-outline"></ion-icon> : {{ onjob[0].more_info}} </p>
+                                      <p class="ion-text-center" id="modaltext">category : {{ onjob[0].candidate_types}}</p>
                                     </ion-col>
                                   </ion-row>
 

@@ -28,11 +28,13 @@ export class ApplicationStatusPage implements OnInit {
         company_name : doc.data().company_name,
         img : doc.data().img,
         job_position : doc.data().job_position,
+        category : doc.data().category,
         location: doc.data().location,
-        more_info: doc.data().more_info,
-        requirement: doc.data().requirement,
+        qualification:doc.data().qualification,
         salary_from: doc.data().salary_from,
         salary_to: doc.data().salary_to,
+        requirement: doc.data().requirement,
+        candidate_types: doc.data().candidate_types,
         post_duration: doc.data().post_duration,
       });
 
