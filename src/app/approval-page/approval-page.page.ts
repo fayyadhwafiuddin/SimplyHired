@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getApp } from 'firebase/app';
-import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { addDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
 import { Jobs } from '../models/jobs';
 
 @Component({
@@ -52,27 +52,70 @@ export class ApprovalPagePage implements OnInit {
         salary_to: doc.data().salary_to,
         requirement: doc.data().requirement,
         candidate_types: doc.data().candidate_types,
+        district: doc.data().district,
+        post_duration_from: doc.data().post_duration_from,
+        post_duration_to: doc.data().post_duration_to,
       });
 
     });
 
   }
 
-  getitem(item) {
+  async appitem(item) {
     console.log(item);
     console.log(this.currentjob[item]);
   
     this.onjob = [{
-      doc_id: this.currentjob[item].doc_id,
       company_name : this.currentjob[item].company_name,
       img : this.currentjob[item].img,
       job_position : this.currentjob[item].job_position,
+      category : this.currentjob[item].category,
       location: this.currentjob[item].location,
-      more_info: this.currentjob[item].more_info,
-      requirement: this.currentjob[item].requirement,
+      qualification:this.currentjob[item].qualification,
       salary_from: this.currentjob[item].salary_from,
       salary_to: this.currentjob[item].salary_to,
+      requirement: this.currentjob[item].requirement,
+      candidate_types: this.currentjob[item].candidate_types,
+      district: this.currentjob[item].district,
+      post_duration_from: this.currentjob[item].post_duration_from,
+      post_duration_to: this.currentjob[item].post_duration_to,
     }];
     console.log(this.onjob);
+    console.log(this.onjob[0]);
+
+    const firebaseApp = getApp();
+    const db = getFirestore(firebaseApp);
+    const approvedpost = await collection(db, 'approvedpost');
+    
+    addDoc(approvedpost, this.onjob[0]);
+   }
+
+   async rejitem(item) {
+    console.log(item);
+    console.log(this.currentjob[item]);
+  
+    this.onjob = [{
+      company_name : this.currentjob[item].company_name,
+      img : this.currentjob[item].img,
+      job_position : this.currentjob[item].job_position,
+      category : this.currentjob[item].category,
+      location: this.currentjob[item].location,
+      qualification:this.currentjob[item].qualification,
+      salary_from: this.currentjob[item].salary_from,
+      salary_to: this.currentjob[item].salary_to,
+      requirement: this.currentjob[item].requirement,
+      candidate_types: this.currentjob[item].candidate_types,
+      district: this.currentjob[item].district,
+      post_duration_from: this.currentjob[item].post_duration_from,
+      post_duration_to: this.currentjob[item].post_duration_to,
+    }];
+    console.log(this.onjob);
+    console.log(this.onjob[0]);
+
+    const firebaseApp = getApp();
+    const db = getFirestore(firebaseApp);
+    const approvedpost = await collection(db, 'rejectedpost');
+    
+    addDoc(approvedpost, this.onjob[0]);
    }
 } 

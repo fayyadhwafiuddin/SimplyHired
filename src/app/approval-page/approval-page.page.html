@@ -44,12 +44,12 @@
                       <p id="title">{{ jobs.company_name }}</p>
                       <p id="subtitle">{{ jobs.job_position }}</p>
                       <p class="text"><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency }} ~ {{ jobs.salary_to | currency }}</p>
-                      <p class="text"><ion-icon name="pin"></ion-icon> : {{ jobs.location }}</p>
+                      <p class="text"><ion-icon name="pin"></ion-icon> : {{ jobs.district }}</p>
                   </ion-col>
 
                   <ion-col class="ion-align-self-center ion-text-end">
-                      <ion-button class="twobutton" size="small" shape="round">approve</ion-button>
-                      <ion-button class="twobutton" size="small" shape="round">reject</ion-button>
+                      <ion-button class="twobutton" size="small" shape="round" (click)="appitem(i)">approve</ion-button>
+                      <ion-button class="twobutton" size="small" shape="round" (click)="rejitem(i)">reject</ion-button>
                   </ion-col>
             </ion-row>
         </ion-grid>
