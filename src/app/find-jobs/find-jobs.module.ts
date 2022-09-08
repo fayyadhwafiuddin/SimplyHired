@@ -8,12 +8,13 @@ import { FindJobsPageRoutingModule } from './find-jobs-routing.module';
 
 import { FindJobsPage } from './find-jobs.page';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FindJobsPageRoutingModule
+    FindJobsPageRoutingModule,
   ],
   declarations: [FindJobsPage]
 })

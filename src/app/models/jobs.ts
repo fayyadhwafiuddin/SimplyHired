@@ -9,7 +9,9 @@ export interface Jobs {
     salary_to: number;
     requirement: string;
     candidate_types : string;
-    post_duration: number;
+    district: string;
+    post_duration_from: Date;
+    post_duration_to: Date;
   }
 
   export interface Job {
@@ -23,5 +25,7 @@ export interface Jobs {
     salary_to: number;
     requirement: string;
     candidate_types : string;
-    post_duration: number;
+    district: string;
+    post_duration_from: Date;
+    post_duration_to: Date;
   }

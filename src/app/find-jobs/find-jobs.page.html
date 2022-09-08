@@ -14,7 +14,7 @@
     <ion-grid>
       <ion-row id="searchbar">
         <ion-col size="9">
-          <ion-searchbar></ion-searchbar>
+          <ion-searchbar placeholder="Search types" [(ngModel)]="search"></ion-searchbar>
         </ion-col>
       
         <ion-col size="3">
@@ -26,7 +26,7 @@
     </ion-grid>
 
   <ion-list>
-    <ion-card class="list" *ngFor="let jobs of jobList; let i = index">
+    <ion-card class="list" *ngFor="let jobs of jobList ; let i = index" filter:search>
       <ion-item>
         <ion-grid>
             <ion-row>
@@ -39,7 +39,7 @@
                       <p id="title">{{ jobs.company_name }}</p>
                       <p id="subtitle">{{ jobs.job_position }}</p>
                       <p class="text"><ion-icon name="wallet-outline"></ion-icon> : {{ jobs.salary_from | currency }} ~ {{ jobs.salary_to | currency }}</p>
-                      <p class="text"><ion-icon name="pin"></ion-icon> : {{ jobs.location }}</p>
+                      <p class="text"><ion-icon name="pin"></ion-icon> : {{ jobs.district }}</p>
                   </ion-col>
 
                   <ion-col class="ion-align-self-center ion-text-end">
@@ -100,7 +100,7 @@
                                   
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon name="navigate"></ion-icon> : {{ onjob[0].location}}</p>
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="navigate"></ion-icon> : {{ onjob[0].district}}</p>
                                     </ion-col>
                                   </ion-row>
 

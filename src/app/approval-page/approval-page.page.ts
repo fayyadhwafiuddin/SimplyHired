@@ -35,7 +35,9 @@ export class ApprovalPagePage implements OnInit {
         salary_to: doc.data().salary_to,
         requirement: doc.data().requirement,
         candidate_types: doc.data().candidate_types,
-        post_duration: doc.data().post_duration,
+        district: doc.data().district,
+        post_duration_from: doc.data().post_duration_from,
+        post_duration_to: doc.data().post_duration_to,
       });
 
       this.currentjob.push({

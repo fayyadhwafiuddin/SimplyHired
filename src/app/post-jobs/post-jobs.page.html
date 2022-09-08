@@ -105,17 +105,49 @@
         </ng-container>
     </ion-card>
 
-    <ion-label>Post Duration</ion-label>
+    <ion-label>District</ion-label>
     <ion-card>
-        <ion-textarea formControlName="post_duration" type="number" placeholder="Enter days of duration for post:" required>
-          
-        </ion-textarea>
+
+      <ion-select formControlName="district" interface="action-sheet" placeholder="Select fruit">
+        <ion-select-option value="Brunei Muara">Brunei Muara</ion-select-option>
+        <ion-select-option value="Tutong">Tutong</ion-select-option>
+        <ion-select-option value="Belait">Belait</ion-select-option>
+        <ion-select-option value="Temburung">Temburung</ion-select-option>
+      </ion-select>
+
         <ng-container>
-          <div *ngIf="(JobsForm.get('post_duration').required)">
+          <div *ngIf="(JobsForm.get('district').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
+
+    <ion-label>Post Duration</ion-label>
+    <br>
+    <br>
+    <ion-label>From:</ion-label>
+    <ion-card>
+        <ion-datetime formControlName="post_duration_from" presentation="date" required>
+          
+        </ion-datetime>
+        <ng-container>
+          <div *ngIf="(JobsForm.get('post_duration_from').required)">
+            <ion-label color="danger">{{ err_msg }}</ion-label>
+          </div>
+        </ng-container>
+    </ion-card>
+
+    <ion-label>To:</ion-label>
+    <ion-card>
+      <ion-datetime formControlName="post_duration_to" presentation="date" required>
+        
+      </ion-datetime>
+      <ng-container>
+        <div *ngIf="(JobsForm.get('post_duration_to').required)">
+          <ion-label color="danger">{{ err_msg }}</ion-label>
+        </div>
+      </ng-container>
+  </ion-card>
 
     <ion-button id="confirm" expand="block" type="submit">POST</ion-button>
   </ion-grid>

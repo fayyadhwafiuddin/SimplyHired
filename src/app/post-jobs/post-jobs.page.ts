@@ -56,7 +56,9 @@ export class PostJobsPage implements OnInit {
      salary_to: ['', Validators.compose([Validators.required])],
      requirement: ['', Validators.compose([Validators.required])],
      candidate_types: ['', Validators.compose([Validators.required])],
-     post_duration: ['', Validators.compose([Validators.required])],
+     district: ['', Validators.compose([Validators.required])],
+     post_duration_from: ['', Validators.compose([Validators.required])],
+     post_duration_to: ['', Validators.compose([Validators.required])],
    }); 
   }
 
