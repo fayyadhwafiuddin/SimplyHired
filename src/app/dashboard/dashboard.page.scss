@@ -1,22 +1,28 @@
-img{
+.logo{
     display: inline-block;
     margin-left: auto;
     margin-right: auto; 
     margin-top: 20px;
     width: 100%;
+    height: 200px;
+}
+
+
+ion-content{
+    --background: #EDF7F6;
 }
 
 .buttonbox{
     width: 100%;
     height: 80px;
-    background-color: orangered;
+    background-color: #F19953;
     border-radius: 10px;
     text-align: center;
     padding-top: 30px;
 }
 
-.bigbox{
-    background-color: orangered;
+img{
+    
     width: 100%;
     height: 250px;
     border-radius: 10px;
@@ -28,4 +34,13 @@ img{
     bottom: 3px;
     width: 100%;
     height: 2.5rem;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  .floatcon{
+    margin-left:150px;
+    float:right;
   }

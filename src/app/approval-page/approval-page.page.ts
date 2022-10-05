@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { getApp } from 'firebase/app';
-import { addDoc, collection, getDocs, getFirestore } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, getFirestore } from 'firebase/firestore';
 import { Jobs } from '../models/jobs';
 
 @Component({
@@ -15,7 +16,9 @@ export class ApprovalPagePage implements OnInit {
   onjob = [];
   jobindex : number;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   async ngOnInit() {
     const firebaseApp = getApp();
@@ -88,6 +91,11 @@ export class ApprovalPagePage implements OnInit {
     const approvedpost = await collection(db, 'approvedpost');
     
     addDoc(approvedpost, this.onjob[0]);
+    const del = doc(db, `jobposted/${this.currentjob[item].doc_id}`);
+    console.log(this.currentjob[item].doc_id);
+    deleteDoc(del).then(() => {
+    location.reload();
+    });
    }
 
    async rejitem(item) {
@@ -95,6 +103,7 @@ export class ApprovalPagePage implements OnInit {
     console.log(this.currentjob[item]);
   
     this.onjob = [{
+      doc_id : this.currentjob[item].doc_id,
       company_name : this.currentjob[item].company_name,
       img : this.currentjob[item].img,
       job_position : this.currentjob[item].job_position,
@@ -109,13 +118,29 @@ export class ApprovalPagePage implements OnInit {
       post_duration_from: this.currentjob[item].post_duration_from,
       post_duration_to: this.currentjob[item].post_duration_to,
     }];
-    console.log(this.onjob);
-    console.log(this.onjob[0]);
 
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
-    const approvedpost = await collection(db, 'rejectedpost');
-    
-    addDoc(approvedpost, this.onjob[0]);
+    const rejectedpost = await collection(db, 'rejectedpost');
+    console.log(this.onjob);
+    console.log(this.onjob[0]);
+    addDoc(rejectedpost, this.onjob[0]);
+    const del = doc(db, `jobposted/${this.currentjob[item].doc_id}`);
+    console.log(this.currentjob[item].doc_id);
+    deleteDoc(del).then(() => {
+      this.router.navigateByUrl('approval-page');
+    });
+
+    // var id = localStorage.getItem('id');
+    // const dbref = ref(db, 'jobposted/'+ id);
+    // const snapshot = await get((dbref));
+    // console.log(snapshot.val());
+    // var cont = [];
+    // snapshot.val().forEach((itemc) => {
+    //   if(itemc != item){
+    //     cont.push();
+    //   }
+    // });
+    // return new set(dbref,cont);
    }
-} 
+}

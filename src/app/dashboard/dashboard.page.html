@@ -1,35 +1,51 @@
 <ion-header>
   <ion-toolbar>
+    <ion-grid>
     <ion-row>
       <ion-col text-center>
-        Welcome User!
         <p>User email: <strong>{{ userDetail }}</strong></p>
-       <ion-button type="submit" color="danger" size="small" (click)="signOut()">Signout</ion-button>
-      </ion-col>
+       </ion-col>
+       <ion-col class="floatcon">
+        <ion-button type="submit" color="danger" size="small" (click)="signOut()">Signout</ion-button>
+       </ion-col>
     </ion-row>
+  </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <h1>Welcome Jobseeker!</h1>
   <ion-grid>
     <div>
-      <img src="assets/img/logo.jpeg">
+      <img src="assets/img/logo.jpeg" class="logo">
     </div>
   </ion-grid>
 
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div class="buttonbox">Find Jobs</div>
+        <div class="buttonbox" routerLink="/find-jobs" >Find Jobs</div>
       </ion-col>
       <ion-col>
-        <div class="buttonbox" >Application Status</div>
+        <div class="buttonbox" routerLink="/dashboard/application-status">Application Status</div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-grid>
-    <div class="bigbox"></div>
+    <div class="bigbox">
+      <ion-slides  #slider loop="true" pager="true" [options]="slideOpts" (ionSlideTouchEnd)="slideChanged()" >
+        <ion-slide>
+          <img src="https://www.bruneida.com/media/fotos/growtec_106149_1_1642996284.jpg" />
+        </ion-slide>
+        <ion-slide>
+          <img src="https://pbs.twimg.com/media/ErlSNA4UUAANesG.jpg:large" />
+        </ion-slide>
+        <ion-slide>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxyBtNW6NUmlDAcYQwE-cSMZFA5jNUOfFpQA&usqp=CAU" />
+        </ion-slide>
+      </ion-slides>
+    </div>
   </ion-grid>
 </ion-content>
 

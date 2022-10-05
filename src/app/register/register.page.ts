@@ -70,7 +70,7 @@ export class RegisterPage implements OnInit {
   }
 
   goToLogin() {
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl('logscreen');
   }
 
 }

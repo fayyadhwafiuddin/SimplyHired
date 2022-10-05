@@ -1,37 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Application status</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+
+  <div class="appheader">Application Status</div>
 
   <ion-card *ngFor="let jobs of jobList"> 
     <ion-thumbnail>
-      <ion-img src="{{jobs.img}}" ></ion-img>
+      <ion-img src="{{jobs.img}}"></ion-img>
     </ion-thumbnail>
     <br>
       <ion-label class="ion-text-wrap" > Job Position: {{jobs.job_position}}</ion-label><br>
-      <ion-label> <ion-icon name="card-outline"></ion-icon> Salary: {{jobs.salary_from}} - {{jobs.salary_to}}  </ion-label><br>
-      <ion-label> <ion-icon name="map-outline"></ion-icon> Location: {{jobs.location }}</ion-label><br>
+       <ion-icon name="card-outline"></ion-icon><ion-label> Salary: {{jobs.salary_from}} - {{jobs.salary_to}}  </ion-label><br>
+      <ion-icon name="map-outline"></ion-icon><ion-label>  Location: {{jobs.location }}</ion-label><br>
       <ion-button class="statusB" >Status: {{jobs.status}}</ion-button>
       
 
   </ion-card>
-
-  <!-- <ion-list class="list" *ngFor="let jobs of jobList">
-    <ion-item>
-      <ion-thumbnail>
-        <ion-img src="{{jobs.imageUrl}}" ></ion-img>
-      </ion-thumbnail>
-      
-      <br>
-      <ion-label class="ion-text-wrap" >{{jobs.occupation}}</ion-label><br>
-      <ion-label>{{jobs.salary}}</ion-label><br>
-      <ion-label>{{jobs.location }}</ion-label>
-      <ion-label>{{jobs.status }}</ion-label>
-    </ion-item>
-  </ion-list> -->
 
 </ion-content>
 
@@ -72,3 +54,6 @@
   <div><ion-icon name="home-outline"></ion-icon> Home</div>
 
   <div><ion-icon name="cog-outline"></ion-icon> Settings</div> -->
+
+  
+

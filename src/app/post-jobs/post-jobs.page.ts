@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, NavController } from '@ionic/angular';
 import { getApp } from 'firebase/app';
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 import { Jobs } from '../models/jobs';
@@ -11,8 +11,10 @@ import { Jobs } from '../models/jobs';
   styleUrls: ['./post-jobs.page.scss'],
 })
 export class PostJobsPage implements OnInit {
+  public navCtrl: NavController
   public JobsForm: FormGroup;
   presentingElement = undefined;
+  public requirement : any=[];
   errmsg: string;
 
   err_msg = "required.";
@@ -94,6 +96,10 @@ export class PostJobsPage implements OnInit {
 
     return role === 'confirm';
   };
+
+  Add(){
+    this.requirement.push({'':''});
+    }
   addjobs(){
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
@@ -103,4 +109,3 @@ export class PostJobsPage implements OnInit {
     console.log(this.JobsForm.value);
   }  
 }
-

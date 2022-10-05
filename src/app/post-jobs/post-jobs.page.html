@@ -79,9 +79,13 @@
 
     <ion-label>Requirements</ion-label>
     <ion-card>
-        <ion-textarea id="requirement" name="requirement" formControlName="requirement" placeholder="Enter Job requirement" required>
+      <ion-item *ngFor="let req of requirement; let i = index">
+        <ion-label>{{req.label}}{{i+1}}</ion-label>  
+        <ion-input id="requirement" name="requirement" type="text" [(ngModel)]="requirement[i].value" formControlName="requirement" placeholder="Enter Job requirement" required>
           
-        </ion-textarea>
+        </ion-input>
+      </ion-item>
+      <ion-button size="small" (click)="add()">Add More</ion-button>
         <ng-container>
           <div *ngIf="(JobsForm.get('requirement').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
@@ -89,6 +93,7 @@
         </ng-container>
     </ion-card>
 
+    <br>
     <ion-label>Candidate Types</ion-label>
     <ion-card>
 
@@ -153,4 +158,3 @@
   </ion-grid>
   </form>
 </ion-content>
-

@@ -23,7 +23,7 @@ export class FindJobsPage implements OnInit {
     const db = getFirestore(firebaseApp);
 
     //to get collection from firestore
-    const jobscollection = await getDocs(collection(db, 'jobposted'));
+    const jobscollection = await getDocs(collection(db, 'approvedpost'));
     
     //push data to array
     //this also help to show to homepage

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FindJobsPageRoutingModule } from './find-jobs-routing.module';
+import { LogscreenPageRoutingModule } from './logscreen-routing.module';
 
-import { FindJobsPage } from './find-jobs.page';
+import { LogscreenPage } from './logscreen.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FindJobsPageRoutingModule
+    LogscreenPageRoutingModule
   ],
-  declarations: [FindJobsPage]
+  declarations: [LogscreenPage]
 })
-export class FindJobsPageModule {}
+export class LogscreenPageModule {}

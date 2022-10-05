@@ -11,6 +11,7 @@ import { IonicAuthService } from '../auth.service';
 export class DashboardPage implements OnInit {
   userDetail: string;
 
+
   constructor(
     private router: Router,
     private ionicAuthService: IonicAuthService

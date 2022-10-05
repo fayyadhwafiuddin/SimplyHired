@@ -9,9 +9,9 @@ import { Jobs } from '../models/jobs';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit{
-  
+
   public jobList: Jobs[] = [];
-  
+
   constructor(private zone: NgZone) {
 
   }
@@ -22,7 +22,7 @@ export class HomePage implements OnInit{
 
     //to get collection from firestore
     const jobscollection = await getDocs(collection(db, 'jobposted'));
-    
+
     //push data to array
     //this also help to show to homepage
     jobscollection.forEach((doc) => {
@@ -47,4 +47,3 @@ export class HomePage implements OnInit{
     });
   }
 }
-
