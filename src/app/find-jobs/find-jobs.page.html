@@ -13,20 +13,38 @@
 
     <ion-grid>
       <ion-row id="searchbar">
-        <ion-col size="9">
+        <ion-col>
           <ion-searchbar placeholder="Search types" [(ngModel)]="search"></ion-searchbar>
         </ion-col>
-      
-        <ion-col size="3">
-          <ion-button id="filter" shape="round" size="small">
-            <ion-icon name="color-filter"></ion-icon>
-          </ion-button>
+      </ion-row>
+      <ion-row>  
+      <ion-col>
+          <ion-select (ionChange)="onChange()" [(ngModel)]="qualification">
+            <ion-select-option value="All" selected>All</ion-select-option>
+            <ion-select-option value="O' Level">O'Level</ion-select-option>
+            <ion-select-option value="A' Level">A'Level</ion-select-option>
+            <ion-select-option value="Diploma">Diploma</ion-select-option>
+            <ion-select-option value="HND">HND</ion-select-option>
+            <ion-select-option value="Degree">Degree</ion-select-option>
+            <ion-select-option value="Master">Master</ion-select-option>
+            <ion-select-option value=""></ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col>
+          <ion-select (ionChange)="onChange()" [(ngModel)]="district">
+            <ion-select-option value="All" selected>All</ion-select-option>
+            <ion-select-option value="Brunei Muara">Brunei Muara</ion-select-option>
+            <ion-select-option value="Tutong">Tutong</ion-select-option>
+            <ion-select-option value="Belait">Belait</ion-select-option>
+            <ion-select-option value="Temburung">Temburung</ion-select-option>
+          </ion-select>
         </ion-col>
       </ion-row>
     </ion-grid>
 
   <ion-list>
-    <ion-card class="list" *ngFor="let jobs of jobList ; let i = index" filter:search>
+    <ion-card class="list" *ngFor="let jobs of ((jobList |selectfilter: district)|filterquali: qualification); let i = index">
       <ion-item>
         <ion-grid>
             <ion-row>
@@ -106,7 +124,11 @@
 
                                   <ion-row>
                                     <ion-col class="ion-align-self-center">
-                                      <p class="ion-text-center" id="modaltext"><ion-icon name="document"></ion-icon>requirement : {{ onjob[0].requirement}}</p>
+                                      <p class="ion-text-center" id="modaltext"><ion-icon name="document"></ion-icon>requirement : 
+                                        <ion-item *ngFor = "let item of onjob[0].requirement">
+                                         {{item.i}} 
+                                        </ion-item>
+                                      </p>
                                     </ion-col>
                                   </ion-row>
                                   

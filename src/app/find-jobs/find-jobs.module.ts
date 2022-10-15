@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { FindJobsPageRoutingModule } from './find-jobs-routing.module';
 
 import { FindJobsPage } from './find-jobs.page';
+import { SelectfilterPipe } from './selectfilter.pipe';
+import { FilterqualiPipe } from './filterquali.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { FindJobsPage } from './find-jobs.page';
     IonicModule,
     FindJobsPageRoutingModule
   ],
-  declarations: [FindJobsPage]
+  declarations: [FindJobsPage, SelectfilterPipe, FilterqualiPipe]
 })
 export class FindJobsPageModule {}

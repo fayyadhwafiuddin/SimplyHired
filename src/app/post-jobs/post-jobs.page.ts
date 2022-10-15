@@ -14,10 +14,14 @@ export class PostJobsPage implements OnInit {
   public navCtrl: NavController
   public JobsForm: FormGroup;
   presentingElement = undefined;
-  public requirement : any=[];
+  public req : any=[];
   errmsg: string;
 
   err_msg = "required.";
+  data: boolean;
+  requirement : string;
+  cost: number;
+
   // err_msg = {
   //   'job_position' : {
   //     type: 'required',
@@ -45,33 +49,39 @@ export class PostJobsPage implements OnInit {
   //   }
   // };
   
-  constructor(public formBuilder: FormBuilder,
-    private actionSheetCtrl: ActionSheetController)
-   { this.JobsForm = this.formBuilder.group ({
-     img: ['', Validators.compose([Validators.required])],
-     company_name: ['', Validators.compose([Validators.required])],
-     job_position: ['', Validators.compose([Validators.required])],
-     category: ['', Validators.compose([Validators.required])],
-     location: ['', Validators.compose([Validators.required])],
-     qualification: ['', Validators.compose([Validators.required])],
-     salary_from: ['', Validators.compose([Validators.required])],
-     salary_to: ['', Validators.compose([Validators.required])],
-     requirement: ['', Validators.compose([Validators.required])],
-     candidate_types: ['', Validators.compose([Validators.required])],
-     district: ['', Validators.compose([Validators.required])],
-     post_duration_from: ['', Validators.compose([Validators.required])],
-     post_duration_to: ['', Validators.compose([Validators.required])],
-   }); 
-  }
+  constructor(
+    public formBuilder: FormBuilder,
+    private actionSheetCtrl: ActionSheetController){ 
+       this.JobsForm = this.formBuilder.group ({
+          img: ['', Validators.compose([Validators.required])],
+          company_name: ['', Validators.compose([Validators.required])],
+          job_position: ['', Validators.compose([Validators.required])],
+          category: ['', Validators.compose([Validators.required])],
+          location: ['', Validators.compose([Validators.required])],
+          qualification: ['', Validators.compose([Validators.required])],
+          salary_from: ['', Validators.compose([Validators.required])],
+          salary_to: ['', Validators.compose([Validators.required])],
+          requirement: ['', Validators.compose([Validators.required])],
+          candidate_types: ['', Validators.compose([Validators.required])],
+          district: ['', Validators.compose([Validators.required])],
+          post_duration_from: ['', Validators.compose([Validators.required])],
+          post_duration_to: ['', Validators.compose([Validators.required])],
+        });
+    }
 
   ngOnInit() {
-    this.presentingElement = document.querySelector('.ion-page');
+    // supposed to be get duration of post from and to
+    // this.presentingElement = document.querySelector('.ion-page');
+    // this.JobsForm.get('post_duration_to').value;
+    // console.log(this.JobsForm.get('post_duration_to').value);
   }
+
+  // fn for add data to firstore
   async Postjobs() {
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
     const jobCollection = collection(db, `jobposted`);
-
+    
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Post Form?',
       buttons: [
@@ -79,8 +89,24 @@ export class PostJobsPage implements OnInit {
           text: 'Yes',
           role: 'confirm',
           handler: () => {
-            addDoc(jobCollection, this.JobsForm.value);
-            console.log(this.JobsForm.value);
+            addDoc(jobCollection,
+              {
+                company_name : "",
+                img : "",
+                location: "",
+                job_position : this.JobsForm.value.job_position,
+                category : this.JobsForm.value.category,
+                qualification : this.JobsForm.value.qualification,
+                salary_from : this.JobsForm.value.salary_from,
+                salary_to : this.JobsForm.value.salary_to,
+                requirement : this.req,
+                candidate_types : this.JobsForm.value.candidate_types,
+                district : this.JobsForm.value.district,
+                post_duration_from : this.JobsForm.value.post_duration_from,
+                post_duration_to : this.JobsForm.value.post_duration_to,
+
+              });
+            console.log(this.JobsForm.value); 
           }
         },
         {
@@ -89,23 +115,26 @@ export class PostJobsPage implements OnInit {
         },
       ],
     });
-
+    
     actionSheet.present();
-
+    
     const { role } = await actionSheet.onWillDismiss();
-
+    
     return role === 'confirm';
   };
-
-  Add(){
-    this.requirement.push({'':''});
+  
+  
+  // goTo(){
+    //   console.log('this.req',this.requirement);
+  //   this.data=true;
+  //   }
+  // to add requirement to req array
+  add(){
+    this.req.push({'i': this.JobsForm.get('requirement').value});
+    console.log(this.req.value);
     }
-  addjobs(){
-    const firebaseApp = getApp();
-    const db = getFirestore(firebaseApp);
-    const jobCollection = collection(db, `jobposted`);
-
-    addDoc(jobCollection, this.JobsForm.value);
-    console.log(this.JobsForm.value);
+  //remove object in req array
+  x(item){
+    delete this.req[item];
   }  
 }

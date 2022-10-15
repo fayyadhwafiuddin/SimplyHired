@@ -10,6 +10,7 @@ import { Job, Jobs } from '../models/jobs';
 export class FindJobsPage implements OnInit {
 
   public jobList: Jobs[] = [];
+  public list: Jobs[] = [];
   search: string;
   currentjob = [];
   onjob = [];
@@ -18,10 +19,12 @@ export class FindJobsPage implements OnInit {
 
   constructor() { }
 
+  
   async ngOnInit() {
+    
     const firebaseApp = getApp();
     const db = getFirestore(firebaseApp);
-
+    
     //to get collection from firestore
     const jobscollection = await getDocs(collection(db, 'approvedpost'));
     
@@ -43,9 +46,10 @@ export class FindJobsPage implements OnInit {
         post_duration_from: doc.data().post_duration_from,
         post_duration_to: doc.data().post_duration_to,
       });
+      
 
       //this is just to show if data can be retrieved
-      console.log(doc.id, " => ", doc.data());
+      // console.log(doc.id, " => ", doc.data());
       this.currentjob.push({
         doc_id: doc.id,
         company_name : doc.data().company_name,
@@ -59,13 +63,25 @@ export class FindJobsPage implements OnInit {
         requirement: doc.data().requirement,
         candidate_types: doc.data().candidate_types,
       });
-
+      
     });
-    console.log(this.currentjob);
+    // console.log(this.currentjob);
+    console.log(this.jobList);
   }
-
+  // for district select filter
+  onChange(district): void {
+    // const firebaseApp = getApp();
+    // const db = getFirestore(firebaseApp);
+    // const del = getDocs(collection(db, `approvedpost/doc_id/this.district`));
+    // this.jobList.filter(item => district === 'All' || item.district === district);
+    // console.log(this.del);
+    
+    console.log(this.jobList);
+    console.log(this.list);
+  }
+  
   isModalOpen = false;
-
+  
   async setOpen(isOpen: boolean) {
     const firebaseApp = getApp();
     this.isModalOpen = isOpen;

@@ -55,7 +55,7 @@
 
     <ion-label>Salary min</ion-label>
     <ion-card>
-        <ion-input formControlName="salary_from" type="number" format="currency" placeholder="Amount" required>
+        <ion-input formControlName="salary_from" type="number" format="currency" placeholder="Amount" step="5" required>
           
         </ion-input>
         <ng-container>
@@ -67,31 +67,43 @@
 
     <ion-label>Salary max</ion-label>
     <ion-card>
-        <ion-input formControlName="salary_to" type="number" currency placeholder="Amount" required>
+        <ion-input formControlName="salary_to" type="number" currency placeholder="Amount" step="5" required>
           
         </ion-input>
         <ng-container>
-          <div *ngIf="(JobsForm.get('salary_to').required)">
+          <div *ngIf="JobsForm.get('salary_to').required">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
 
-    <ion-label>Requirements</ion-label>
-    <ion-card>
-      <ion-item *ngFor="let req of requirement; let i = index">
-        <ion-label>{{req.label}}{{i+1}}</ion-label>  
-        <ion-input id="requirement" name="requirement" type="text" [(ngModel)]="requirement[i].value" formControlName="requirement" placeholder="Enter Job requirement" required>
-          
-        </ion-input>
-      </ion-item>
-      <ion-button size="small" (click)="add()">Add More</ion-button>
+    <ion-label>Requirements</ion-label>  
+      <ion-item *ngFor="let att of req; let i = index" >
+        <ion-label color="primary">{{i+1}}) {{att.i}}</ion-label>  
+        <ion-button size="small" (click)="x(i)">X</ion-button>
+      </ion-item>  
+        <ion-card>
+          <ion-input  
+          formControlName="requirement"
+          type="text" 
+          color=" orange"
+          placeholder="Enter Job requirement" 
+          required>
+          </ion-input>
+        </ion-card>
+      <ion-button size="small" (click)="add()">+</ion-button>
+
         <ng-container>
           <div *ngIf="(JobsForm.get('requirement').required)">
             <ion-label color="danger">{{ err_msg }}</ion-label>
           </div>
         </ng-container>
-    </ion-card>
+
+    <ion-card *ngIf="data">
+      <ion-item *ngFor="let att of req;">
+        <div class="card-title">{{att.value}}</div>
+      </ion-item>
+     </ion-card>
 
     <br>
     <ion-label>Candidate Types</ion-label>
@@ -154,6 +166,10 @@
       </ng-container>
   </ion-card>
 
+  <ion-label>Cost</ion-label>
+  <ion-card>
+    $ {{cost}}
+  </ion-card>
     <ion-button id="confirm" expand="block" type="submit">POST</ion-button>
   </ion-grid>
   </form>
