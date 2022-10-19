@@ -10,16 +10,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form [formGroup]="JobsForm" (submit)="Postjobs()">
+  <form [formGroup]="JobsForm" (ngsubmit)="Postjobs()">
     <ion-grid>
     <ion-label>Job Position</ion-label>
     <ion-card>
         <ion-input formControlName="job_position" id="job_position" type="text" placeholder="Enter Job Position" required>
           
         </ion-input>
-        <ng-container>
-          <div *ngIf="(JobsForm.get('job_position').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.job_position">
+          <div *ngIf="(JobsForm.get('job_position').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
       </ion-card>
@@ -29,9 +29,9 @@
         <ion-input formControlName="category" id="category" type="text" placeholder="Enter Skills Category such as IT, Admin, " required>
           
         </ion-input>
-        <ng-container>
-          <div *ngIf="(JobsForm.get('category').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.category">
+          <div *ngIf="(JobsForm.get('category').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
       </ion-card>
@@ -46,9 +46,9 @@
           <ion-select-option value="Degree">Degree</ion-select-option>
           <ion-select-option value="Master">Master</ion-select-option>
         </ion-select>
-          <ng-container>
-            <div *ngIf="(JobsForm.get('qualification').required)">
-              <ion-label color="danger">{{ err_msg }}</ion-label>
+          <ng-container *ngFor="let err of err_msg.qualification">
+            <div *ngIf="(JobsForm.get('qualification').dirty)">
+              <ion-label color="danger">{{ err.message }}</ion-label>
             </div>
           </ng-container>
         </ion-card>
@@ -58,9 +58,9 @@
         <ion-input formControlName="salary_from" type="number" format="currency" placeholder="Amount" step="5" required>
           
         </ion-input>
-        <ng-container>
-          <div *ngIf="(JobsForm.get('salary_from').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.salary_from">
+          <div *ngIf="(JobsForm.get('salary_from').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
@@ -70,9 +70,9 @@
         <ion-input formControlName="salary_to" type="number" currency placeholder="Amount" step="5" required>
           
         </ion-input>
-        <ng-container>
-          <div *ngIf="JobsForm.get('salary_to').required">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.salary_to">
+          <div *ngIf="JobsForm.get('salary_to').dirty">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
@@ -93,9 +93,9 @@
         </ion-card>
       <ion-button size="small" (click)="add()">+</ion-button>
 
-        <ng-container>
-          <div *ngIf="(JobsForm.get('requirement').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.requirement">
+          <div *ngIf="(JobsForm.get('requirement').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
 
@@ -115,9 +115,9 @@
         <ion-select-option value="Internship">Internship</ion-select-option>
       </ion-select>
 
-        <ng-container>
-          <div *ngIf="(JobsForm.get('candidate_types').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.candidate_types">
+          <div *ngIf="(JobsForm.get('candidate_types').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
@@ -132,9 +132,9 @@
         <ion-select-option value="Temburung">Temburung</ion-select-option>
       </ion-select>
 
-        <ng-container>
-          <div *ngIf="(JobsForm.get('district').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.district">
+          <div *ngIf="(JobsForm.get('district').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
@@ -144,24 +144,24 @@
     <br>
     <ion-label>From:</ion-label>
     <ion-card>
-        <ion-datetime formControlName="post_duration_from" presentation="date" required>
+        <ion-datetime (ionChange)="onChangeFrom($event)" formControlName="post_duration_from" displayFormat="MM DD YY" presentation="date" required>
           
         </ion-datetime>
-        <ng-container>
-          <div *ngIf="(JobsForm.get('post_duration_from').required)">
-            <ion-label color="danger">{{ err_msg }}</ion-label>
+        <ng-container *ngFor="let err of err_msg.post_duration_from">
+          <div *ngIf="(JobsForm.get('post_duration_from').dirty)">
+            <ion-label color="danger">{{ err.message }}</ion-label>
           </div>
         </ng-container>
     </ion-card>
 
     <ion-label>To:</ion-label>
     <ion-card>
-      <ion-datetime formControlName="post_duration_to" presentation="date" required>
+      <ion-datetime (ionChange)="onChangeTo($event)" formControlName="post_duration_to" presentation="date" required>
         
       </ion-datetime>
-      <ng-container>
-        <div *ngIf="(JobsForm.get('post_duration_to').required)">
-          <ion-label color="danger">{{ err_msg }}</ion-label>
+      <ng-container *ngFor="let err of err_msg.post_duration_to">
+        <div *ngIf="(JobsForm.get('post_duration_to').dirty)">
+          <ion-label color="danger">{{ err.message }}</ion-label>
         </div>
       </ng-container>
   </ion-card>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { IonicAuthService } from '../auth.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { getApp } from 'firebase/app';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
 
 @Component({
   selector: 'app-register',
@@ -47,6 +49,7 @@ export class RegisterPage implements OnInit {
 
   ngOnInit() {
     this.userForm = this.fb.group({
+      user: ['', Validators.compose([Validators.required])],
       email: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
@@ -55,22 +58,35 @@ export class RegisterPage implements OnInit {
         Validators.minLength(6),
         Validators.required
       ])),
+      phoneno: ['', Validators.compose([Validators.required])],
     });
   }
 
-  signUp(value) {
+  async signUp(value) {
     this.ionicAuthService.createUser(value)
       .then((response) => {
+        const firebaseApp = getApp();
+        const db = getFirestore(firebaseApp);
+        const userdata = collection(db, `userdata`);
+        // push to firebase
+    addDoc(userdata,{
+        user : this.userForm.value.user,
+        email : this.userForm.value.email,
+        password: this.userForm.value.password,
+        phone : this.userForm.value.phoneno,
+      });
         this.errorMsg = "";
         this.successMsg = "New user created.";
       }, error => {
         this.errorMsg = error.message;
         this.successMsg = "";
       })
+      console.log(this.userForm.value);
   }
 
   goToLogin() {
     this.router.navigateByUrl('logscreen');
   }
+
 
 }

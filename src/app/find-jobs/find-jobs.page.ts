@@ -67,19 +67,7 @@ export class FindJobsPage implements OnInit {
     });
     // console.log(this.currentjob);
     console.log(this.jobList);
-  }
-  // for district select filter
-  onChange(district): void {
-    // const firebaseApp = getApp();
-    // const db = getFirestore(firebaseApp);
-    // const del = getDocs(collection(db, `approvedpost/doc_id/this.district`));
-    // this.jobList.filter(item => district === 'All' || item.district === district);
-    // console.log(this.del);
-    
-    console.log(this.jobList);
-    console.log(this.list);
-  }
-  
+  }  
   isModalOpen = false;
   
   async setOpen(isOpen: boolean) {
