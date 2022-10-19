@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonicAuthService } from '../auth.service';
 
 @Component({
   selector: 'app-admin-homepage',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomepagePage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private ionicAuthService: IonicAuthService
+  ) { }
 
   ngOnInit() {
+  }
+
+  
+  signOut() {
+    this.ionicAuthService.signoutUser()
+      .then(res => {
+        this.router.navigateByUrl('login');
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
 }

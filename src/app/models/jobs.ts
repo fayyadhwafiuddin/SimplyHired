@@ -29,3 +29,11 @@ export interface Job {
   post_duration_from: Date;
   post_duration_to: Date;
 }
+
+export interface userprofile {
+  email: string;
+  user: string;
+  phone: string;
+  password: string;
+  role: string,
+}

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-icon name="arrow-back" class="back" routerLink="/dashboard" ></ion-icon>
+    <ion-button color="danger" size="small" routerLink="/dashboard" >Back</ion-button>
 </ion-toolbar>
 </ion-header>
 
@@ -16,13 +16,13 @@
   </ion-row>
 
     <ion-row class="row">
-      <h3>Username:</h3>
+      <h5>Username:</h5>
     </ion-row>
     <ion-row class="row">
-      <h3>Email:</h3>
+      <h5>User email: <strong>{{ userDetail }}</strong></h5>
     </ion-row>
     <ion-row class="row">
-      <h3>Career Status:</h3>
+      <h5>Career Status:</h5>
     </ion-row>
 
     <ion-row class="info">

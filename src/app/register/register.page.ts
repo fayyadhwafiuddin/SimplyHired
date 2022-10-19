@@ -59,6 +59,7 @@ export class RegisterPage implements OnInit {
         Validators.required
       ])),
       phoneno: ['', Validators.compose([Validators.required])],
+      role: ['', Validators.compose([Validators.required])],
     });
   }
 
@@ -74,6 +75,7 @@ export class RegisterPage implements OnInit {
         email : this.userForm.value.email,
         password: this.userForm.value.password,
         phone : this.userForm.value.phoneno,
+        role : this.userForm.value.role,
       });
         this.errorMsg = "";
         this.successMsg = "New user created.";
@@ -85,7 +87,7 @@ export class RegisterPage implements OnInit {
   }
 
   goToLogin() {
-    this.router.navigateByUrl('logscreen');
+    this.router.navigateByUrl('login');
   }
 
 

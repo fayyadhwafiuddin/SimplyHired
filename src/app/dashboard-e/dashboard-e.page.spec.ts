@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { LogscreenPage } from './logscreen.page';
+import { DashboardEPage } from './dashboard-e.page';
 
-describe('LogscreenPage', () => {
-  let component: LogscreenPage;
-  let fixture: ComponentFixture<LogscreenPage>;
+describe('DashboardEPage', () => {
+  let component: DashboardEPage;
+  let fixture: ComponentFixture<DashboardEPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ LogscreenPage ],
+      declarations: [ DashboardEPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LogscreenPage);
+    fixture = TestBed.createComponent(DashboardEPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

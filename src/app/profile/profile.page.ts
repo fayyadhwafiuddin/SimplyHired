@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { IonicAuthService } from '../auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  userDetail: string;
+
+  constructor(
+    private router: Router,
+    private ionicAuthService: IonicAuthService) { }
 
   ngOnInit() {
+    this.ionicAuthService.userDetails().subscribe(response => {
+      if (response !== null) {
+        this.userDetail = response.email;
+      } else {
+        this.router.navigateByUrl('');
+      }
+    }, error => {
+      console.log(error);
+    })
   }
 
 }

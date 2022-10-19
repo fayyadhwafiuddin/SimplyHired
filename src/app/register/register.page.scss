@@ -20,7 +20,6 @@ h6,h1{
 
 .form{
     display: inline-block;
-    margin-top: 5em;
     color: black;
 }
 
@@ -28,13 +27,17 @@ img{
     display: inline-block;
     margin-left: auto;
     margin-right: auto; 
-    margin-top: 80px;
     width: 100%;
 }
 
 .loginbtn{
     margin-top: 50px;
     
+}
+
+ion-list{
+    margin-bottom: 10px;
+    border-radius: 20px;
 }
 
 .inputbox{

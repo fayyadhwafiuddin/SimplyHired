@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { IonicAuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
+  selector: 'app-dashboard-e',
+  templateUrl: './dashboard-e.page.html',
+  styleUrls: ['./dashboard-e.page.scss'],
 })
-export class SettingsPage implements OnInit {
+export class DashboardEPage implements OnInit {
 
   constructor(
     private router: Router,
@@ -16,7 +16,6 @@ export class SettingsPage implements OnInit {
 
   ngOnInit() {
   }
-
 
   signOut() {
     this.ionicAuthService.signoutUser()

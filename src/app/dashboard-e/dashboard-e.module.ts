@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SignupscreenPageRoutingModule } from './signupscreen-routing.module';
+import { DashboardEPageRoutingModule } from './dashboard-e-routing.module';
 
-import { SignupscreenPage } from './signupscreen.page';
+import { DashboardEPage } from './dashboard-e.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SignupscreenPageRoutingModule
+    DashboardEPageRoutingModule
   ],
-  declarations: [SignupscreenPage]
+  declarations: [DashboardEPage]
 })
-export class SignupscreenPageModule {}
+export class DashboardEPageModule {}

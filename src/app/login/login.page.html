@@ -9,7 +9,7 @@
     <form class="form" [formGroup]="userForm" (ngSubmit)="signIn(userForm.value)">
 
       <div class="inputbox">
-        <ion-input type="text" formControlName="email" placeholder="Enter your email"></ion-input>
+        <ion-input [(ngModel)]="username" type="text" formControlName="email" placeholder="Enter your email"></ion-input>
         <ng-container *ngFor="let error of error_msg.email">
           <div *ngIf="userForm.get('email').hasError(error.type) && (userForm.get('email').dirty || userForm.get('email').touched)">
             {{ error.message }}
@@ -20,7 +20,7 @@
       
   
       <div class="inputbox">
-        <ion-input type="password" formControlName="password" class="form-controll" placeholder="Enter your password" required></ion-input>
+        <ion-input [(ngModel)]="password" type="password" formControlName="password" class="form-controll" placeholder="Enter your password" required></ion-input>
         <ng-container *ngFor="let error of error_msg.password">
           <div *ngIf="userForm.get('password').hasError(error.type) && (userForm.get('password').dirty || userForm.get('password').touched)">
             {{ error.message }}
@@ -31,11 +31,11 @@
       
 
       <div>
-        <h6>Forgot Password?</h6>
+        <h6 (click)='reset()'>Forgot Password?</h6>
       </div>
 
       <div class="loginbtn">
-      <ion-button type="submit" expand="full" [disabled]="!userForm.valid">Login</ion-button>
+      <ion-button (click)='logAdmin()' type="submit" expand="full" [disabled]="!userForm.valid">Login</ion-button>
       <label class="ion-text-center" color="danger">{{errorMsg}}</label>
       </div>
 

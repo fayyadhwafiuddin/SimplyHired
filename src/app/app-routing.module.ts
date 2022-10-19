@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'logscreen',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -44,20 +44,20 @@ const routes: Routes = [
     loadChildren: () => import('./models/models.module').then( m => m.ModelsPageModule)
   },
   {
-    path: 'logscreen',
-    loadChildren: () => import('./logscreen/logscreen.module').then( m => m.LogscreenPageModule)
-  },
-  {
-    path: 'signupscreen',
-    loadChildren: () => import('./signupscreen/signupscreen.module').then( m => m.SignupscreenPageModule)
-  },
-  {
     path: 'approval-page',
     loadChildren: () => import('./approval-page/approval-page.module').then( m => m.ApprovalPagePageModule)
   },
   {
     path: 'admin-homepage',
     loadChildren: () => import('./admin-homepage/admin-homepage.module').then( m => m.AdminHomepagePageModule)
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+  },
+  {
+    path: 'dashboard-e',
+    loadChildren: () => import('./dashboard-e/dashboard-e.module').then( m => m.DashboardEPageModule)
   },
 ];
 

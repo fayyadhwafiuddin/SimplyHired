@@ -4,7 +4,18 @@
       <img src="assets/img/logo.png">
     </div>
 
+    <h1>SIGN UP</h1>
+
     <form class="form" [formGroup]="userForm" (ngSubmit)="signUp(userForm.value)">
+
+      <ion-list>
+        <ion-item>
+          <ion-select placeholder="Select Role" formControlName="role" interface="action-sheet">
+            <ion-select-option value="Employee">Employee</ion-select-option>
+            <ion-select-option value="Jobseeker">Jobseeker</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
 
       <div class="inputbox">
         <ion-input type="text" formControlName="user" placeholder="Enter your name"></ion-input>
@@ -39,6 +50,8 @@
       </div>
       <label class="ion-text-center" color="danger">{{errorMsg}}</label>
       <label class="ion-text-center" color="success">{{successMsg}}</label>
+
+      
 
     </form>
   </ion-content>

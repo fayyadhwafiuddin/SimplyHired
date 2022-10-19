@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LogscreenPage } from './logscreen.page';
+import { DashboardEPage } from './dashboard-e.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: LogscreenPage
+    component: DashboardEPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LogscreenPageRoutingModule {}
+export class DashboardEPageRoutingModule {}
